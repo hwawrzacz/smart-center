@@ -8,7 +8,7 @@ import { CommonMaterialModule } from './modules/common-material/common-material.
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

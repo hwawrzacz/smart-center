@@ -1,0 +1,23 @@
+<mat-sidenav-container>
+  <mat-sidenav mode="over" [opened]="sidenavExpanded" (openedChange)="handleSidenavStateChange($event)">
+    <mat-nav-list>
+      <mat-list-item>Home</mat-list-item>
+      <mat-list-item (click)="piHoleLink.click()">
+        <mat-icon>block</mat-icon>
+        <a #piHoleLink href="http://192.168.0.2/admin" target="_blank">PiHole admin panel
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button mat-icon-button (click)="toggleSidenav()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Smart center</span>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
