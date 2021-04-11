@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HardwareMonitorService } from 'src/app/services/hardware-monitor.service';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-hardware-status-widget',

@@ -44,10 +44,11 @@ export class HardwareMonitorService {
     this.websocketStatus$.next(WebSocketStatus.OPEN);
   }
 
-  private handleWebSocketMessage = (messageEvent: MessageEvent<Message>): void => {
-    console.log('ws message', messageEvent);
-    if (messageEvent.data.type === MessageType.TEMP_RESPONSE) {
-      const temperature = parseInt(messageEvent.data.response?.trim() || '0');
+  private handleWebSocketMessage = (messageEvent: MessageEvent<string>): void => {
+    const message = JSON.parse(messageEvent.data) as Message;
+
+    if (message.type === MessageType.TEMP_RESPONSE) {
+      const temperature = parseInt(message.response?.trim() || '0');
       this.temperature$.next(temperature);
     }
   }
