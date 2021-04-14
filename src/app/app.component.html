@@ -1,19 +1,12 @@
 <mat-sidenav-container>
   <mat-sidenav mode="over" [opened]="sidenavExpanded" (openedChange)="handleSidenavStateChange($event)">
-    <mat-nav-list>
-      <mat-list-item [routerLink]="['/home']" routerLinkActive="router-link-active">Home</mat-list-item>
-      <mat-list-item (click)="piHoleLink.click()">
-        <mat-icon>block</mat-icon>
-        <a #piHoleLink href="http://192.168.0.2/admin" target="_blank">PiHole admin panel
-        </a>
-      </mat-list-item>
-    </mat-nav-list>
+    <app-sidenav-menu></app-sidenav-menu>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <mat-toolbar>
-      <button mat-icon-button (click)="toggleSidenav()">
-        <mat-icon>menu</mat-icon>
+      <button mat-icon-button (click)="toggleSidenav()" matRippleDisabled="false">
+        <mat-icon appearance="round">menu</mat-icon>
       </button>
       <h1>Smart center</h1>
       <app-hardware-status-widget></app-hardware-status-widget>

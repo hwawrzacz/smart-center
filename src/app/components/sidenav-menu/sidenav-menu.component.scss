@@ -1,0 +1,16 @@
+@use '../../../styles/variables' as *;
+
+mat-toolbar {
+  background-color: transparent;
+}
+
+mat-list-item {
+  mat-icon {
+    margin-right: $button-icon-margin;
+  }
+
+  &[disabled] {
+    background-color: transparent;
+    opacity: .5;
+  }
+}

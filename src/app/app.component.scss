@@ -1,3 +1,5 @@
+@use '../styles/variables' as *;
+
 mat-sidenav-content {
   height: 100vh;
   display: flex;
@@ -9,6 +11,15 @@ mat-sidenav {
 }
 
 mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  
+  .mat-icon-button {
+    margin-right: $button-icon-margin;
+  }
+
   h1 {
     width: 100%;
   }
