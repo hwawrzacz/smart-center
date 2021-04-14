@@ -5,10 +5,9 @@
     <mat-icon>home</mat-icon>
     <span>Home</span>
   </mat-list-item>
-  <mat-list-item (click)="piHoleLink.click()">
+  <mat-list-item routerLinkActive="router-link-active" (click)="openPiHoleAdminPanel()">
     <mat-icon>dangerous</mat-icon>
-    <a #piHoleLink href="http://192.168.0.2/admin" target="_blank">PiHole admin panel
-    </a>
+    <span>PiHole admin panel</span>
   </mat-list-item>
 
   <h3 mat-subheader>Administration</h3>
