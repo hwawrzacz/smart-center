@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PI_HOLE_ADMIN_PANEL_URL } from 'src/app/constants';
 
 @Component({
   selector: 'app-sidenav-menu',
@@ -6,13 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidenav-menu.component.scss']
 })
 export class SidenavMenuComponent implements OnInit {
-  private readonly PI_HOLE_ADMIN_PANEL_URL = 'http://192.168.0.2/admin';
   constructor() { }
 
   ngOnInit(): void { }
 
   public openPiHoleAdminPanel(): void {
-    window.open(this.PI_HOLE_ADMIN_PANEL_URL, '_blank')
+    window.open(PI_HOLE_ADMIN_PANEL_URL, '_blank')
   }
 
 }
