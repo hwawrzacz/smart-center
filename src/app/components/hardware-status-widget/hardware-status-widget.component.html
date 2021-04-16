@@ -1,6 +1,9 @@
 <div class="wrapper">
-  <span class="ram-usage">
-    <mat-icon>memory</mat-icon>{{ ramUsed }}/{{ ramTotal }} MB
+  <span>
+    <mat-icon>memory</mat-icon>CPU: {{ cpuLoad }}%
+  </span>
+  <span>
+    <mat-icon>memory</mat-icon>RAM: {{ ramUsed }}/{{ ramTotal }} MB
   </span>
   <span>
     <mat-icon>thermostat</mat-icon>{{ temperature }} &deg;C

@@ -11,6 +11,10 @@ export class HardwareStatusWidgetComponent implements OnInit {
     return this._hardwareMonitor.hardwareStatus.cpuTemp;
   }
 
+  get cpuLoad(): number {
+    return this._hardwareMonitor.hardwareStatus.cpuLoad;
+  }
+
   get ramTotal(): number {
     return this._hardwareMonitor.hardwareStatus.ramTotal;
   }
