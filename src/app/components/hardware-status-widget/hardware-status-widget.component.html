@@ -1,3 +1,8 @@
 <div class="wrapper">
-  <mat-icon>thermostat</mat-icon>{{ temperature }} &deg;C
+  <span class="ram-usage">
+    <mat-icon>memory</mat-icon>{{ ramUsed }}/{{ ramTotal }} MB
+  </span>
+  <span>
+    <mat-icon>thermostat</mat-icon>{{ temperature }} &deg;C
+  </span>
 </div>

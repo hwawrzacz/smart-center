@@ -8,7 +8,15 @@ import { HardwareMonitorService } from 'src/app/services/hardware-monitor.servic
 })
 export class HardwareStatusWidgetComponent implements OnInit {
   get temperature(): number {
-    return this._hardwareMonitor.temperature$.value;
+    return this._hardwareMonitor.hardwareStatus.cpuTemp;
+  }
+
+  get ramTotal(): number {
+    return this._hardwareMonitor.hardwareStatus.ramTotal;
+  }
+
+  get ramUsed(): number {
+    return this._hardwareMonitor.hardwareStatus.ramUsed;
   }
 
   constructor(private _hardwareMonitor: HardwareMonitorService) { }

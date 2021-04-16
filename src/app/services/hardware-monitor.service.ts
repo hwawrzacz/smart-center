@@ -1,60 +1,61 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
-
-export enum WebSocketStatus {
-  CONNECTING,
-  OPEN,
-  RECONNECTING,
-  CLOSING,
-  CLOSED,
-}
-
-enum MessageType {
-  CONNECTED = 'connected',
-  TEMP_REQUEST = 'temp_request',
-  TEMP_RESPONSE = 'temp_response',
-  UNKNOWN = 'unknown'
-}
-
-interface Message {
-  type: MessageType;
-  success?: boolean;
-  response?: string;
-  error?: string;
-}
+import { HardwareStatus } from '../models/hardware-status';
+import { Message } from '../models/message';
+import { MessageType } from '../models/message-type';
+import { WebSocketStatus } from '../models/websocket-status';
 
 /** Service which is responsible for obtaining real-time data about Raspberry */
 @Injectable({
   providedIn: 'root'
 })
 export class HardwareMonitorService {
-  websocketStatus$ = new BehaviorSubject(WebSocketStatus.CONNECTING);
-  temperature$ = new BehaviorSubject(0);
-  private _client: WebSocket;
+  private readonly _websocketStatus$: BehaviorSubject<WebSocketStatus | any>;
+  private readonly _hardwareStatus$: BehaviorSubject<HardwareStatus>;
+  private _websocket: WebSocket;
+
+  //#region Getters and setters
+  get websocketStaus$(): Subject<WebSocketStatus> {
+    return this._websocketStatus$ as Subject<WebSocketStatus>;
+  }
+
+  get hardwareStatus(): HardwareStatus {
+    return this._hardwareStatus$.value;
+  }
+  //#endregion
 
   constructor() {
-    this._client = new WebSocket('ws://192.168.0.2:3000');
+    this._websocketStatus$ = new BehaviorSubject(WebSocketStatus.CONNECTING);
+    const hardwareStatus = {
+      cpuTemp: 0,
+      ramTotal: 0,
+      ramUsed: 0,
+    } as HardwareStatus;
 
-    this._client.addEventListener('open', this.handleWebSocketOpen);
-    this._client.addEventListener('message', this.handleWebSocketMessage);
-    this._client.addEventListener('close', this.handleWebSocketClose);
+    this._hardwareStatus$ = new BehaviorSubject(hardwareStatus);
+    this._websocket = new WebSocket('ws://192.168.0.2:3000');
+
+    this._websocket.addEventListener('open', this.handleWebSocketOpen);
+    this._websocket.addEventListener('message', this.handleWebSocketMessage);
+    this._websocket.addEventListener('close', this.handleWebSocketClose);
   }
 
   private handleWebSocketOpen = (event: Event): void => {
-    this.websocketStatus$.next(WebSocketStatus.OPEN);
+    this._websocketStatus$.next(WebSocketStatus.OPEN);
   }
 
   private handleWebSocketMessage = (messageEvent: MessageEvent<string>): void => {
-    const message = JSON.parse(messageEvent.data) as Message;
+    const message = JSON.parse(messageEvent.data) as Message<any>;
 
-    if (message.type === MessageType.TEMP_RESPONSE) {
-      const temperature = parseInt(message.response?.trim() || '0');
-      this.temperature$.next(temperature);
+    if (message.type === MessageType.HARDWARE_STATUS_RESPONSE) {
+      const hardwareStatus = message.value as HardwareStatus;
+      this._hardwareStatus$.next(hardwareStatus);
     }
   }
 
   private handleWebSocketClose(closeEvent: CloseEvent): void {
     // TODO: Start reconnecting
-    this.websocketStatus$.next(WebSocketStatus.CLOSED);
+    this._websocketStatus$.next(WebSocketStatus.CLOSED);
   }
 }

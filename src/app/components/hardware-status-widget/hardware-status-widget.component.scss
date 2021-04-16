@@ -1,5 +1,16 @@
+@use '../../../styles/variables' as *;
+
 .wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+span {
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin-right: $spacing-regular;
+  }
 }
