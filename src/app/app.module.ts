@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonMaterialModule } from './modules/common-material/common-material.module';
 import { HardwareStatusWidgetComponent } from './components/hardware-status-widget/hardware-status-widget.component';
 import { SidenavMenuComponent } from './components/sidenav-menu/sidenav-menu.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,12 @@ import { SidenavMenuComponent } from './components/sidenav-menu/sidenav-menu.com
     AppRoutingModule,
     BrowserAnimationsModule,
     CommonMaterialModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
