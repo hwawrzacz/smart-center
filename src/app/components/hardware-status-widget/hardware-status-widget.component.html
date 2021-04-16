@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" [ngClass]="{ 'layout-column' : layout === 'column' }">
   <span>
     <mat-icon>memory</mat-icon>CPU: {{ cpuLoad }}%
   </span>

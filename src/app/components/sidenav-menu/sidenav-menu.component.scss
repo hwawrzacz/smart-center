@@ -1,10 +1,23 @@
 @use '../../../styles/variables' as *;
 
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 mat-toolbar {
   background-color: transparent;
 }
 
+mat-nav-list {
+  &.menu {
+    flex: 1 1;
+  }
+}
+
 mat-list-item {
+
   mat-icon {
     margin-right: $button-icon-margin;
   }
@@ -13,4 +26,8 @@ mat-list-item {
     background-color: transparent;
     opacity: .5;
   }
+}
+
+app-hardware-status-widget {
+  align-self: flex-end;
 }

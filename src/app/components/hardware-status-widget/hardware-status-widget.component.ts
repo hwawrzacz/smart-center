@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HardwareMonitorService } from 'src/app/services/hardware-monitor.service';
 
 @Component({
@@ -7,6 +7,17 @@ import { HardwareMonitorService } from 'src/app/services/hardware-monitor.servic
   styleUrls: ['./hardware-status-widget.component.scss']
 })
 export class HardwareStatusWidgetComponent implements OnInit {
+  private _layout: 'row' | 'column';
+
+  @Input('layout')
+  set layout(value: 'row' | 'column') {
+    this._layout = value;
+  }
+
+  get layout(): 'row' | 'column' {
+    return this._layout;
+  }
+
   get temperature(): number {
     return this._hardwareMonitor.hardwareStatus.cpuTemp;
   }
@@ -23,7 +34,9 @@ export class HardwareStatusWidgetComponent implements OnInit {
     return this._hardwareMonitor.hardwareStatus.ramUsed;
   }
 
-  constructor(private _hardwareMonitor: HardwareMonitorService) { }
+  constructor(private _hardwareMonitor: HardwareMonitorService) {
+    this._layout = 'row'
+  }
 
   ngOnInit(): void { }
 }

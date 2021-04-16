@@ -1,23 +1,31 @@
-<mat-toolbar>Menu</mat-toolbar>
-<mat-nav-list>
-  <h3 mat-subheader>Quick access</h3>
-  <mat-list-item [routerLink]="['/home']" routerLinkActive="router-link-active">
-    <mat-icon>home</mat-icon>
-    <span>Home</span>
-  </mat-list-item>
-  <mat-list-item routerLinkActive="router-link-active" (click)="openPiHoleAdminPanel()">
-    <mat-icon>dangerous</mat-icon>
-    <span>PiHole admin panel</span>
-  </mat-list-item>
+<div class="wrapper">
+  <mat-toolbar>Menu</mat-toolbar>
 
-  <h3 mat-subheader>Administration</h3>
-  <mat-list-item disabled>
-    <mat-icon>settings_backup_restore</mat-icon>
-    <span> Reboot </span>
-  </mat-list-item>
-  <mat-list-item disabled>
-    <mat-icon>power_settings_new</mat-icon>
-    <span> Shut down </span>
-  </mat-list-item>
+  <mat-nav-list class="menu">
+    <h3 mat-subheader>Quick access</h3>
+    <mat-list-item [routerLink]="['/home']" routerLinkActive="router-link-active">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </mat-list-item>
 
-</mat-nav-list>
+    <mat-list-item routerLinkActive="router-link-active" (click)="openPiHoleAdminPanel()">
+      <mat-icon>dangerous</mat-icon>
+      <span>PiHole admin panel</span>
+    </mat-list-item>
+
+    <h3 mat-subheader>Administration</h3>
+    <mat-list-item disabled>
+      <mat-icon>settings_backup_restore</mat-icon>
+      <span> Reboot </span>
+    </mat-list-item>
+
+    <mat-list-item disabled>
+      <mat-icon>power_settings_new</mat-icon>
+      <span> Shut down </span>
+    </mat-list-item>
+  </mat-nav-list>
+
+  <mat-nav-list>
+    <h3 mat-subheader>Hardware status</h3>
+    <app-hardware-status-widget [layout]="'column'"></app-hardware-status-widget>
+  </mat-nav-list>
