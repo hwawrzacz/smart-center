@@ -36,16 +36,16 @@ export class HardwareMonitorService {
     this._hardwareStatus$ = new BehaviorSubject(hardwareStatus);
     this._websocket = new WebSocket('ws://192.168.0.2:3000');
 
-    this._websocket.addEventListener('open', this.handleWebSocketOpen);
-    this._websocket.addEventListener('message', this.handleWebSocketMessage);
-    this._websocket.addEventListener('close', this.handleWebSocketClose);
+    this._websocket.addEventListener('open', (event) => this.handleWebSocketOpen(event));
+    this._websocket.addEventListener('message', (event) => this.handleWebSocketMessage(event));
+    this._websocket.addEventListener('close', (event) => this.handleWebSocketClose(event));
   }
 
-  private handleWebSocketOpen = (event: Event): void => {
+  private handleWebSocketOpen(event: Event): void {
     this._websocketStatus$.next(WebSocketStatus.OPEN);
   }
 
-  private handleWebSocketMessage = (messageEvent: MessageEvent<string>): void => {
+  private handleWebSocketMessage(messageEvent: MessageEvent<string>): void {
     const message = JSON.parse(messageEvent.data) as Message<any>;
 
     if (message.type === MessageType.HARDWARE_STATUS_RESPONSE) {
