@@ -1,20 +1,31 @@
 @use '../../../../styles/variables' as *;
 
 .wrapper {
+  $home-page-padding: $spacing-medium; 
   width: 100%;
   height: 100vh;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding-top: $mat-toolbar-height;
+  
+  padding: $home-page-padding;
+  padding-top: calc(#{$mat-toolbar-height} + #{$home-page-padding});
 }
 
 img {
-  flex: 1 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  pointer-events: none;
   max-width: 90vw;
   max-height: 80vh;
   opacity: .1;
   object-fit: contain;
+}
+
+// Small screens
+@media screen and (max-width: $small-screen-breakpoint) {
+  app-weather-card {
+    width: 100%;
+  }
 }
