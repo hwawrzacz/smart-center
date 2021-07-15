@@ -11,7 +11,7 @@ export abstract class WebsocketService<T> {
   private _websocket: WebSocket;
 
   //#region Getters and setters
-  get data$(): Subject<WebSocketStatus> {
+  get websocketStatus$(): Subject<WebSocketStatus> {
     return this._websocketStatus$ as Subject<WebSocketStatus>;
   }
 

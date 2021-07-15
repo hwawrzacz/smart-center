@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { WeatherData } from '../../models/weather-data.interface';
 import { WeatherService } from '../../services/weather.service';
 
 @Component({
@@ -7,29 +8,17 @@ import { WeatherService } from '../../services/weather.service';
   styleUrls: ['./weather-card.component.scss']
 })
 export class WeatherCardComponent implements OnInit {
-  private _weatherInside: WeatherData = {} as WeatherData;
-  private _weatherOutside: WeatherData = {} as WeatherData;
 
-  @Input('weatherInside')
-  set watherInside(value: WeatherData) {
-    this._weatherInside = value;
+  get weatherInside(): WeatherData {
+    return this._weatherService.data;
   }
 
-  get watherInside(): WeatherData {
-    return this._weatherInside;
+  get weatherOutside(): WeatherData {
+    return this._weatherService.data;
   }
 
-  set watherOutside(value: WeatherData) {
-    this._weatherOutside = value;
-  }
+  constructor(private _weatherService: WeatherService) { }
 
-  get watherOutside(): WeatherData {
-    return this._weatherOutside;
-  }
-
-  constructor(weatherService: WeatherService) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

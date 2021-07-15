@@ -1,6 +1,6 @@
-interface WeatherData {
+export interface WeatherData {
   locationName?: string;
   temperature: number;
-  himidity: number;
+  humidity: number;
   pressure: number;
 }

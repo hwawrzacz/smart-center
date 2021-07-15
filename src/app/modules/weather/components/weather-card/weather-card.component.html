@@ -1,1 +1,12 @@
-<p>weather-card works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Weather</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="weather-details">
+      <span>{{ weatherInside.temperature }}&deg;C</span>
+      <span>{{ weatherInside.pressure }} hPa</span>
+      <span>{{ weatherInside.humidity }}%</span>
+    </p>
+  </mat-card-content>
+</mat-card>
