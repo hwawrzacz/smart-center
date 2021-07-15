@@ -19,19 +19,19 @@ export class HardwareStatusWidgetComponent implements OnInit {
   }
 
   get temperature(): number {
-    return this._hardwareMonitor.hardwareStatus.cpuTemp;
+    return this._hardwareMonitor.data.cpuTemp;
   }
 
   get cpuLoad(): number {
-    return this._hardwareMonitor.hardwareStatus.cpuLoad;
+    return this._hardwareMonitor.data.cpuLoad;
   }
 
   get ramTotal(): number {
-    return this._hardwareMonitor.hardwareStatus.ramTotal;
+    return this._hardwareMonitor.data.ramTotal;
   }
 
   get ramUsed(): number {
-    return this._hardwareMonitor.hardwareStatus.ramUsed;
+    return this._hardwareMonitor.data.ramUsed;
   }
 
   constructor(private _hardwareMonitor: HardwareMonitorService) {
