@@ -1,0 +1,34 @@
+[
+  {
+    "name": "hardwareManagement",
+    "enabled": true
+  },
+  {
+    "name": "indoorWeatherStation",
+    "enabled": false
+  },
+  {
+    "name": "outdoorWeatherStation",
+    "enabled": false
+  },
+  {
+    "name": "printServer",
+    "enabled": false
+  },
+  {
+    "name": "motionSensors",
+    "enabled": false
+  },
+  {
+    "name": "parkingCameras",
+    "enabled": false
+  },
+  {
+    "name": "mainLightsControl",
+    "enabled": false
+  },
+  {
+    "name": "decorativeLightsControl",
+    "enabled": false
+  }
+]

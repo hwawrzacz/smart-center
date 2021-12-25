@@ -9,6 +9,7 @@ import { HardwareStatusWidgetComponent } from './components/hardware-status-widg
 import { SidenavMenuComponent } from './components/sidenav-menu/sidenav-menu.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { CoreModule } from './modules/core/core.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { environment } from '../environments/environment';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
