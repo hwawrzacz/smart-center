@@ -1,16 +1,15 @@
-
 # SmartCenter client app
 
-User interface of the SmartCenter system. 
+User interface of the SmartCenter system.
 
-SmartCenter is a smart home system based on different sensors created with Raspberry Pi and Arduino 
-platforms, and variety of APIs available among the internet such as 
-[OpenWeather API](https://openweathermap.org/api), 
+SmartCenter is a smart home system based on different sensors created with Raspberry Pi and Arduino platforms, and
+variety of APIs available among the internet such as
+[OpenWeather API](https://openweathermap.org/api),
 [Spotify Web API](https://developer.spotify.com/documentation/web-api/)
 and [Google Assistant API](https://developers.google.com/assistant/sdk/guides/service/python).
 
-While doing this project I want to learn as much as I can about the IoT, development, deployment and 
-project maintenance, so many hardware services I will create myself (such as weather station)
+While doing this project I want to learn as much as I can about the IoT, development, deployment and project
+maintenance, so many hardware services I will create myself (such as weather station)
 
 The system is being created from scratch, so it will definitely take some time to implement all the assumed
 functionalities.
@@ -24,6 +23,27 @@ functionalities.
 - [ ] Google Assistant
 
 ## Development server
+
+1. Install required packages
+
+```node
+npm
+install
+```
+
+2. You can check your versions with this command
+
+```node
+ng--
+version
+```
+
+3. Start the dev server
+
+```node
+ng
+serve
+```
 
 ### Tools versions
 
@@ -44,35 +64,35 @@ rxjs                            6.6.7
 typescript                      4.5.4
 ```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag
+for a production build.
 
 ## Deploy locally with SSL
 
-In order to run this project as a PWA app it must be deployed on HTTPS with SSL certificate. 
-If you don't want to use it that way (if browser app is enough for you), you can deploy it on 
-a standard HTTP server. 
+In order to run this project as a PWA app it must be deployed on HTTPS with SSL certificate. If you don't want to use it
+that way (if browser app is enough for you), you can deploy it on a standard HTTP server.
 
 The app is hosted on NGINX.
 
-### Deploy on Raspberry Pi with NGINX 
+### Deploy on Raspberry Pi with NGINX
 
 This section contains instructions on installing and configuring NGINX and deploying app
 
 #### Install and configure NGINX
+
 1. Update apt-get repos: `sudo apt-get update`,
 2. Install NGINX: `sudo apt-get install nginx`,
 3. Run the service: `sudo /etc/init.d/nginx start`
-4. Generate SSL certificate: `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout <path_to_your/cert_file>/cert_file.key -out <path_to_your/cert_file>cert_file.crt`
-   
+4. Generate SSL
+   certificate: `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout <path_to_your/cert_file>/cert_file.key -out <path_to_your/cert_file>cert_file.crt`
+
    Example of _path_to_your/cert_file_: /etc/ssl/self-signed/
 
 5. Server configuration
-   - `nano /etc/nginx/sites-available/default`
-   - `nano /etc/nginx/sites-enabled/default`
+    - `nano /etc/nginx/sites-available/default`
+    - `nano /etc/nginx/sites-enabled/default`
 
    ```
     # Redirection to HTTPS
@@ -112,7 +132,7 @@ This section contains instructions on installing and configuring NGINX and deplo
    ```
 
 #### Deploy
-  
+
 1. Build the app - follow the instructions above,
 2. Copy all files from `dist/your-app-name` to `/var/www/your-app-name`
 3. Restart NGINX `sudo systemctl restart nginx` or `sudo /etc/init.d/nginx start` (not sure if the 2nd option works)
