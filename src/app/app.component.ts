@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-root',
@@ -6,23 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  private _sidenavExpanded: boolean;
+  private _sidenavExpanded: boolean
 
   get sidenavExpanded(): boolean {
-    return this._sidenavExpanded;
+    return this._sidenavExpanded
   }
 
   constructor() {
-    this._sidenavExpanded = false;
+    this._sidenavExpanded = false
   }
 
   public toggleSidenav(): void {
-    this._sidenavExpanded = !this._sidenavExpanded;
+    this._sidenavExpanded = !this._sidenavExpanded
   }
 
   public handleSidenavStateChange(state: boolean): void {
     if (this._sidenavExpanded != state) {
-      this._sidenavExpanded = state;
+      this._sidenavExpanded = state
     }
   }
 

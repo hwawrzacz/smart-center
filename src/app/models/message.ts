@@ -1,4 +1,4 @@
-import { MessageType } from './message-type';
+import { MessageType } from './message-type'
 
 export interface Message<T> {
   type: MessageType;

@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { WeatherCardComponent } from './components/weather-card/weather-card.component';
-import { CommonMaterialModule } from '../common-material/common-material.module';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { WeatherCardComponent } from './components/weather-card/weather-card.component'
+import { CommonMaterialModule } from '../common-material/common-material.module'
 
 @NgModule({
   declarations: [
@@ -13,4 +13,4 @@ import { CommonMaterialModule } from '../common-material/common-material.module'
   ],
   exports: [WeatherCardComponent],
 })
-export class WeatherModule { }
+export class WeatherModule {}
