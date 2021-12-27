@@ -1,34 +1,57 @@
 [
   {
+    "name": "hardwareInformation",
+    "enabled": true,
+    "config": {}
+  },
+  {
     "name": "hardwareManagement",
-    "enabled": true
+    "enabled": false,
+    "config": {}
+  },
+  {
+    "name": "piHole",
+    "enabled": true,
+    "config": {}
   },
   {
     "name": "indoorWeatherStation",
-    "enabled": false
+    "enabled": true,
+    "config": {}
   },
   {
     "name": "outdoorWeatherStation",
-    "enabled": false
+    "enabled": false,
+    "config": {}
+  },
+  {
+    "name": "openWeatherAirQuality",
+    "enabled": false,
+    "config": {}
   },
   {
     "name": "printServer",
-    "enabled": false
+    "enabled": false,
+    "config": {}
   },
   {
     "name": "motionSensors",
-    "enabled": false
+    "enabled": false,
+    "config": {}
   },
   {
     "name": "parkingCameras",
-    "enabled": false
+    "enabled": false,
+    "config": {}
   },
   {
     "name": "mainLightsControl",
-    "enabled": false
+    "enabled": false,
+    "config": {}
   },
   {
     "name": "decorativeLightsControl",
-    "enabled": false
+    "enabled": false,
+    "config": {}
   }
 ]

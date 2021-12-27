@@ -8,24 +8,29 @@
       <span>Home</span>
     </mat-list-item>
 
-    <mat-list-item routerLinkActive="router-link-active" (click)="openPiHoleAdminPanel()">
-      <mat-icon>dangerous</mat-icon>
-      <span>PiHole admin panel</span>
-    </mat-list-item>
+    <div *ngIf="isPiHoleSupported()">
+      <mat-list-item routerLinkActive="router-link-active" (click)="openPiHoleAdminPanel()">
+        <mat-icon>dangerous</mat-icon>
+        <span>PiHole admin panel</span>
+      </mat-list-item>
+    </div>
 
-    <h3 mat-subheader>Administration</h3>
-    <mat-list-item disabled>
-      <mat-icon>settings_backup_restore</mat-icon>
-      <span> Reboot </span>
-    </mat-list-item>
+    <div *ngIf="isHardwareManagementSupported()">
+      <h3 mat-subheader>Administration</h3>
+      <mat-list-item disabled>
+        <mat-icon>settings_backup_restore</mat-icon>
+        <span> Reboot </span>
+      </mat-list-item>
 
-    <mat-list-item disabled>
-      <mat-icon>power_settings_new</mat-icon>
-      <span> Shut down </span>
-    </mat-list-item>
+      <mat-list-item disabled>
+        <mat-icon>power_settings_new</mat-icon>
+        <span> Shut down </span>
+      </mat-list-item>
+    </div>
   </mat-nav-list>
 
-  <mat-nav-list>
+  <mat-nav-list *ngIf="isHardwareInformationSupported()">
     <h3 mat-subheader>Hardware status</h3>
     <app-hardware-status-widget [layout]="'column'"></app-hardware-status-widget>
   </mat-nav-list>
+</div>
