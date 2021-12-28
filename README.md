@@ -26,23 +26,20 @@ functionalities.
 
 1. Install required packages
 
-```node
-npm
-install
+```
+npm install
 ```
 
 2. You can check your versions with this command
 
-```node
-ng--
-version
+```
+ng --version
 ```
 
 3. Start the dev server
 
-```node
-ng
-serve
+```
+ng serve
 ```
 
 ### Tools versions
@@ -141,4 +138,24 @@ The app will be accessible in the browser under _<your_machine_ip_address>_ - th
 
 ## Usage
 
-Another goal was to make this app to be run with minimal number of configuration steps required.
+To enable certain service follow the steps below.
+
+1. Go to `your-app/src/assets` directory,
+2. Open the `supported-services.json` file, There are a list of supported services,
+3. Set `"enabled": true` below the name of a service you want to enable.
+
+If the chosen service does not require any additional configuration it will run, otherwise something might not work as
+expected.
+
+### Example
+
+```json
+[
+  {
+    "name": "hardwareInformation",
+    "enabled": true,
+    "config": {}
+  },
+  ...
+]
+```
