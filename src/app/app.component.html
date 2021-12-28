@@ -4,11 +4,17 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button mat-icon-button (click)="toggleSidenav()" matRippleDisabled="false">
-        <mat-icon appearance="round">menu</mat-icon>
-      </button>
-      <h1>Smart center</h1>
+    <mat-toolbar color="primary" fxLayout="row">
+      <div fxFlex="row" fxLayoutAlign="space-between center">
+        <button mat-icon-button (click)="toggleSidenav()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <h1>Smart center</h1>
+      </div>
+
+      <a mat-icon-button routerLink="/settings">
+        <mat-icon>settings</mat-icon>
+      </a>
     </mat-toolbar>
 
     <router-outlet></router-outlet>
