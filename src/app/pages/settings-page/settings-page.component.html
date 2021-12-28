@@ -6,7 +6,7 @@
       <mat-icon [ngClass]="{'service-enabled': service.enabled, 'service-disabled': !service.enabled }">
         {{ service.enabled ? 'check_circle' : 'cancel' }}
       </mat-icon>
-      <span>{{ service.name }}</span>
+      <span>{{ service.name | serviceTranslate }}</span>
     </mat-list-item>
   </mat-list>
 </div>

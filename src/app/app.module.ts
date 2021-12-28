@@ -10,7 +10,8 @@ import { SidenavMenuComponent } from './components/sidenav-menu/sidenav-menu.com
 import { ServiceWorkerModule } from '@angular/service-worker'
 import { environment } from '../environments/environment'
 import { CoreModule } from './modules/core/core.module';
-import { SettingsPageComponent } from './pages/settings-page/settings-page.component'
+import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
+import { ServiceTranslatePipe } from './pipes/service-translate.pipe'
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SettingsPageComponent } from './pages/settings-page/settings-page.compo
     HardwareStatusWidgetComponent,
     SidenavMenuComponent,
     SettingsPageComponent,
+    ServiceTranslatePipe,
   ],
   imports: [
     BrowserModule,

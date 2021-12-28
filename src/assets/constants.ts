@@ -1,4 +1,4 @@
-export const servicesTranslations = {
+export const servicesTranslations: { [key: string]: string } = {
   'hardwareInformation': 'Hardware information',
   'hardwareManagement': 'Hardware management',
   'piHole': 'PiHole',

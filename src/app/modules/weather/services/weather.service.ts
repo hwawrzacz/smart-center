@@ -10,7 +10,6 @@ import { WeatherData } from '../models/weather-data.interface'
 export class WeatherService extends WebsocketService<WeatherData> {
   constructor() {
     super('ws://192.168.0.2:3001')
-    console.log('service created')
   }
 
   protected handleWebSocketMessage(messageEvent: MessageEvent): void {
