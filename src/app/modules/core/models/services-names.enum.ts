@@ -1,4 +1,4 @@
-export enum ServicesNames {
+export enum ServiceName {
   HARDWARE_INFORMATION = 'hardwareInformation',
   HARDWARE_MANAGEMENT = 'hardwareManagement',
   PI_HOLE = 'piHole',

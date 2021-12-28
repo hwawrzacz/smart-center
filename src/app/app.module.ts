@@ -9,13 +9,15 @@ import { HardwareStatusWidgetComponent } from './components/hardware-status-widg
 import { SidenavMenuComponent } from './components/sidenav-menu/sidenav-menu.component'
 import { ServiceWorkerModule } from '@angular/service-worker'
 import { environment } from '../environments/environment'
-import { CoreModule } from './modules/core/core.module'
+import { CoreModule } from './modules/core/core.module';
+import { SettingsPageComponent } from './pages/settings-page/settings-page.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HardwareStatusWidgetComponent,
     SidenavMenuComponent,
+    SettingsPageComponent,
   ],
   imports: [
     BrowserModule,

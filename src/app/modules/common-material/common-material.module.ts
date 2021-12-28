@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card'
 import { MatDividerModule } from '@angular/material/divider'
+import { MatTooltipModule } from '@angular/material/tooltip'
 
 @NgModule({
   declarations: [],
@@ -20,6 +21,7 @@ import { MatDividerModule } from '@angular/material/divider'
     MatCardModule,
     MatButtonModule,
     MatDividerModule,
+    MatTooltipModule
   ],
   exports: [
     MatToolbarModule,
@@ -30,6 +32,7 @@ import { MatDividerModule } from '@angular/material/divider'
     MatCardModule,
     MatButtonModule,
     MatDividerModule,
+    MatTooltipModule
   ]
 })
 export class CommonMaterialModule {}

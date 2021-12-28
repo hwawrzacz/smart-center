@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { tap } from 'rxjs/operators'
 import { BehaviorSubject, Observable } from 'rxjs'
-import { ServicesNames } from '../models/services-names.enum'
+import { ServiceName } from '../models/services-names.enum'
 import { SupportedService } from '../models/supported-services'
 
 @Injectable({
   providedIn: 'root'
 })
 export class SupportedServicesService {
-  private configuration$ = new BehaviorSubject<SupportedService[]>([])
+  private _services$ = new BehaviorSubject<SupportedService[]>([])
 
   constructor(private http: HttpClient) {
     this.loadSupportedServicesConfiguration()
@@ -17,66 +17,66 @@ export class SupportedServicesService {
 
   //region Getters and Setters
   get isAnyServiceSupported(): boolean {
-    return this.configuration$.value.length > 0
+    return this._services$.value.length > 0
   }
 
   get isHardwareInformationSupported(): boolean {
-    return this.isServiceEnabled(ServicesNames.HARDWARE_INFORMATION)
+    return this.isServiceSupported(ServiceName.HARDWARE_INFORMATION)
   }
 
   get isHardwareManagementSupported(): boolean {
-    return this.isServiceEnabled(ServicesNames.HARDWARE_MANAGEMENT)
+    return this.isServiceSupported(ServiceName.HARDWARE_MANAGEMENT)
   }
 
   get isPiHoleSupported(): boolean {
-    return this.isServiceEnabled(ServicesNames.PI_HOLE)
+    return this.isServiceSupported(ServiceName.PI_HOLE)
   }
 
   get isIndoorWeatherStationSupported(): boolean {
-    return this.isServiceEnabled(ServicesNames.INDOOR_WEATHER_STATION)
+    return this.isServiceSupported(ServiceName.INDOOR_WEATHER_STATION)
   }
 
   get isOutdoorWeatherStationSupported(): boolean {
-    return this.isServiceEnabled(ServicesNames.OUTDOOR_WEATHER_STATION)
+    return this.isServiceSupported(ServiceName.OUTDOOR_WEATHER_STATION)
   }
 
   get isOpenWeatherAirQualitySupported(): boolean {
-    return this.isServiceEnabled(ServicesNames.OPEN_WEATHER_AIR_QUALITY)
+    return this.isServiceSupported(ServiceName.OPEN_WEATHER_AIR_QUALITY)
   }
 
   get isPrintServerSupported(): boolean {
-    return this.isServiceEnabled(ServicesNames.PRINT_SERVER)
+    return this.isServiceSupported(ServiceName.PRINT_SERVER)
   }
 
   get isMotionSensorsSupported(): boolean {
-    return this.isServiceEnabled(ServicesNames.MOTION_SENSORS)
+    return this.isServiceSupported(ServiceName.MOTION_SENSORS)
   }
 
   get isParkingCamerasSupported(): boolean {
-    return this.isServiceEnabled(ServicesNames.PARKING_CAMERAS)
+    return this.isServiceSupported(ServiceName.PARKING_CAMERAS)
   }
 
   get isDecorativeLightsControlSupported(): boolean {
-    return this.isServiceEnabled(ServicesNames.DECORATIVE_LIGHTS_CONTROL)
+    return this.isServiceSupported(ServiceName.DECORATIVE_LIGHTS_CONTROL)
   }
 
   get isMainLightsControlSupported(): boolean {
-    return this.isServiceEnabled(ServicesNames.MAIN_LIGHTS_CONTROL)
+    return this.isServiceSupported(ServiceName.MAIN_LIGHTS_CONTROL)
   }
 
-  get config$(): Observable<any> {
-    return this.configuration$.asObservable()
+  get services$(): Observable<any> {
+    return this._services$.asObservable()
   }
 
   //endregion
 
-  private isServiceEnabled(serviceName: string): boolean {
-    return this.isAnyServiceSupported && !!this.configuration$.value.find(service => service.name === serviceName)?.enabled
+  public isServiceSupported(serviceName: ServiceName): boolean {
+    return this.isAnyServiceSupported && !!this._services$.value.find(service => service.name === serviceName)?.enabled
   }
 
   private loadSupportedServicesConfiguration(): void {
     this.http.get<SupportedService[]>('/assets/supported-services.json').pipe(
-      tap(config => this.configuration$.next(config)),
+      tap(config => this._services$.next(config)),
     ).subscribe()
   }
 }

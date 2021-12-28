@@ -1,0 +1,13 @@
+@use "/src/styles/variables" as *;
+
+mat-icon {
+  margin-right: $spacing-regular;
+}
+
+.service-enabled {
+  color: $color-green;
+}
+
+.service-disabled {
+  color: $color-red;
+}
