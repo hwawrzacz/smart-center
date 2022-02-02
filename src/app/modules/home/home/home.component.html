@@ -1,4 +1,5 @@
 <div class="page-wrapper">
   <img src="assets/images/raspberry-pi-logo.png" alt="Raspberry Pi logo">
   <app-weather-card *ngIf="isWeatherServiceSupported()"></app-weather-card>
+  <app-air-quality-card *ngIf="isAirQualitySupported()"></app-air-quality-card>
 </div>

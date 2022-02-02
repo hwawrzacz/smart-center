@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common'
 import { HomeComponent } from './home/home.component'
 import { HomeRoutingModule } from './home-routing.module'
 import { WeatherModule } from '../weather/weather.module'
+import { AirQualityModule } from '../air-quality/air-quality.module'
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { WeatherModule } from '../weather/weather.module'
     CommonModule,
     HomeRoutingModule,
     WeatherModule,
+    AirQualityModule,
   ],
   bootstrap: [HomeComponent]
 })

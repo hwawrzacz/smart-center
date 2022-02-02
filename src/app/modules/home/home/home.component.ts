@@ -13,4 +13,8 @@ export class HomeComponent {
   isWeatherServiceSupported(): boolean {
     return this.supportedServices.isIndoorWeatherStationSupported
   }
+
+  isAirQualitySupported(): boolean {
+    return this.supportedServices.isOpenWeatherAirQualitySupported
+  }
 }
