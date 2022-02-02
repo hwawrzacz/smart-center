@@ -6,10 +6,12 @@
     <p class="weather-details">
       <span>{{ weatherInside.temperature || '--' }}&deg;C</span>
       <span>
-        <mat-icon>speed</mat-icon>{{ weatherInside.pressure || '--' }} hPa
+        <mat-icon>speed</mat-icon>
+        {{ weatherInside.pressure || '--' }} hPa
       </span>
       <span>
-        <mat-icon>grain</mat-icon>{{ weatherInside.humidity || '--' }}%
+        <mat-icon>grain</mat-icon>
+        {{ weatherInside.humidity || '--' }}%
       </span>
     </p>
   </mat-card-content>
@@ -17,6 +19,6 @@
   <mat-divider></mat-divider>
 
   <mat-card-actions>
-    <button mat-button>Go to details</button>
+    <button mat-button disabled>Go to details</button>
   </mat-card-actions>
 </mat-card>
