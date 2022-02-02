@@ -26,7 +26,7 @@
   },
   {
     "name": "openWeatherAirQuality",
-    "enabled": false,
+    "enabled": true,
     "config": {}
   },
   {
