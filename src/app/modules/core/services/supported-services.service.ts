@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http'
 import { tap } from 'rxjs/operators'
 import { BehaviorSubject, Observable } from 'rxjs'
 import { ServiceName } from '../models/services-names.enum'
-import { SupportedService } from '../models/supported-services'
+import { SupportedService, SupportedServiceConfig } from '../models/supported-services'
+import { OpenWeatherAirQualityConfig } from '../../air-quality/models/open-weather-air-quality-config'
 
 @Injectable({
   providedIn: 'root'
@@ -64,8 +65,16 @@ export class SupportedServicesService {
     return this.isServiceSupported(ServiceName.MAIN_LIGHTS_CONTROL)
   }
 
-  get services$(): Observable<any> {
+  get services$(): Observable<SupportedService[]> {
     return this._services$.asObservable()
+  }
+
+  get services(): SupportedService[] {
+    return this._services$.value
+  }
+
+  get openWeatherAirQualityConfig(): OpenWeatherAirQualityConfig | undefined {
+    return this.getServiceConfig(ServiceName.OPEN_WEATHER_AIR_QUALITY) as OpenWeatherAirQualityConfig
   }
 
   //endregion
@@ -78,5 +87,9 @@ export class SupportedServicesService {
     this.http.get<SupportedService[]>('/assets/supported-services.json').pipe(
       tap(config => this._services$.next(config)),
     ).subscribe()
+  }
+
+  private getServiceConfig(serviceName: ServiceName): SupportedServiceConfig {
+    return this._services$.value.find(service => service.name === serviceName)?.config as SupportedServiceConfig
   }
 }

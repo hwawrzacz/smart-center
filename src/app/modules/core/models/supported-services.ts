@@ -1,7 +1,6 @@
 export interface SupportedServiceConfig {
   apiKey: string
-  token: string
-  ipAddress: string
+  url: string
 }
 
 export interface SupportedService {
