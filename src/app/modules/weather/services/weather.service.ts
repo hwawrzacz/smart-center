@@ -13,14 +13,10 @@ export class WeatherService extends WebsocketService<WeatherData> {
   }
 
   protected handleWebSocketMessage(messageEvent: MessageEvent): void {
-    console.log('handling ws message')
-
     const message = JSON.parse(messageEvent.data) as Message<any>
 
     if (message.type === MessageType.WEATHER_RESPONSE) {
       const weatherData = message.value as WeatherData
-      console.log(weatherData)
-
       this._data$.next(weatherData)
     }
   }
