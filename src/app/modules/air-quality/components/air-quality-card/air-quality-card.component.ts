@@ -11,7 +11,7 @@ import { AirQualityIndex, AirQualityIndexNames } from '../../models/air-quality-
   styleUrls: ['./air-quality-card.component.scss']
 })
 export class AirQualityCardComponent implements OnInit {
-  airQualityData$ = new Subject<AirQualityData>()
+  airQualityData$: Subject<AirQualityData> = new Subject<AirQualityData>()
 
   constructor(private airQualityService: AirQualityService) { }
 
