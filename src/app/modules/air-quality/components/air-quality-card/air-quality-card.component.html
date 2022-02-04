@@ -2,8 +2,11 @@
   <mat-card-header>
     <mat-card-title>Air quality</mat-card-title>
   </mat-card-header>
+
   <mat-card-content>
-    
+    <p *ngIf="airQualityData$ | async as data" class="air-quality-index-{{ data.airQualityIndex }}">
+      Current air quality is {{ getAirQualityIndexName(data.airQualityIndex) | lowercase }}
+    </p>
   </mat-card-content>
 
   <mat-divider></mat-divider>

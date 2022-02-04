@@ -1,0 +1,49 @@
+@use '/src/styles/variables' as *;
+
+mat-card {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  & > *:not(
+    mat-card-content,
+    p,
+    mat-divider
+  ) {
+    margin: auto $spacing-medium;
+  }
+}
+
+mat-card-content {
+  display: flex;
+  align-content: center;
+  margin-bottom: 0;
+}
+
+p {
+  width: 100%;
+  margin: 0;
+  padding: $spacing-big $spacing-medium;
+
+  font-size: 1.2rem;
+}
+
+.air-quality-index-1 {
+  background-color: limegreen;
+}
+
+.air-quality-index-2 {
+  background-color: greenyellow;
+}
+
+.air-quality-index-3 {
+  background-color: orange;
+}
+
+.air-quality-index-4 {
+  background-color: orangered;
+}
+
+.air-quality-index-5 {
+  background-color: #d00000;
+  color: white
+}
