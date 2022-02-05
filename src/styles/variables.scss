@@ -5,9 +5,11 @@ $transition-fast: 100ms;
 $transition-normal: 300ms;
 $transition-slow: 500ms;
 
+
 //======================================
 //============== SPACINGS ==============
 //======================================
+//General
 $spacing-tiny: 2px;
 $spacing-small: 4px;
 $spacing-regular: 8px;
@@ -15,9 +17,19 @@ $spacing-medium: 16px;
 $spacing-big: 32px;
 $spacing-huge: 64px;
 
+
+// Home page layout
+$home-page-padding: 16px;
+$home-page-grid-gap: 16px;
+
+// Card
+$card-padding: 16px;
+
+
 //===================================
 //============== SIZES ==============
 //===================================
+// General
 $mat-icon-initial-size: 24px;
 $mat-icon-initial-font-size: 24px;
 $button-height: 32px;
@@ -28,6 +40,7 @@ $icon-button-size: 40px;
 $mat-toolbar-height: 64px;
 $button-icon-margin: $spacing-regular;
 
+
 //======================================================
 //============== SCREEN SIZES BREAKPOINTS ==============
 //======================================================
@@ -35,12 +48,15 @@ $small-screen-breakpoint: 480px;
 $medium-screen-breakpoint: 768px;
 $big-screen-breakbpoint: 1024px;
 
+
 //====================================
 //============== COLORS ==============
 //====================================
 // General
 $color-red: rgb(255, 0, 0);
+$color-orangered: orangered;
 $color-orange: rgb(240, 128, 0);
 $color-yellow: gold;
+$color-yellowgreen: yellowgreen;
 $color-green: rgb(0, 170, 0);
 $color-bluegray: rgb(60, 80, 116);

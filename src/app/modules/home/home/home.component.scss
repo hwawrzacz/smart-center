@@ -14,22 +14,19 @@ img {
 
 
 .page-wrapper {
-  $home-page-padding: $spacing-medium;
   width: 100%;
   height: 100vh;
 
-  grid-template-rows: repeat(5, 1fr);
+  display: grid;
+  grid-gap: $home-page-grid-gap;
   grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   grid-template-areas:
-    'weather air empty0 empty0 empty0'
-    'weather air empty0 empty0 empty0'
-    'empty1         empty1      empty0 empty0 empty0'
-    'empty1         empty1      empty0 empty0 empty0'
-    'empty1         empty1      empty0 empty0 empty0';
-
-  //display: flex;
-  //align-items: flex-start;
-  //justify-content: flex-start;
+    'weather weather  air    air    .'
+    'weather weather  air    air    .'
+    '.       .        .      .      .'
+    '.       .        .      .      .'
+    '.       .        .      .      .';
 
   padding: $home-page-padding;
   padding-top: calc(#{$mat-toolbar-height} + #{$home-page-padding});
