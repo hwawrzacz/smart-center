@@ -2,6 +2,7 @@
 
 @use "./styles/variables" as *;
 @import "./styles/material-theme";
+@import "styles/main-layout-card";
 
 * {
   box-sizing: border-box;

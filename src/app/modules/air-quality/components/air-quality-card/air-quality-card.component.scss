@@ -1,28 +1,20 @@
 @use '/src/styles/variables' as *;
 
 mat-card {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-
-  & > *:not(
-    mat-card-content,
-    p,
-    mat-divider
-  ) {
-    margin: auto $spacing-medium;
+  mat-card-content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
-mat-card-content {
-  display: flex;
-  align-content: center;
-  margin-bottom: 0;
-}
-
-p {
+.air-quality-details {
   width: 100%;
+  height: 100%;
   margin: 0;
   padding: $spacing-big $spacing-medium;
+
+  display: flex;
+  align-items: center;
 
   font-size: 1.2rem;
 }
