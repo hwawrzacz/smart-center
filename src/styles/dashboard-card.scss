@@ -9,12 +9,9 @@ mat-card.dashboard-card {
   flex-direction: column;
   justify-content: stretch;
 
-  & > *:not(
-    mat-card-content,
-    mat-divider
-  ) {
-    margin-left: $spacing-medium;
-    margin-right: $spacing-medium;
+  & > *:not(mat-divider) {
+    margin-left: $card-padding;
+    margin-right: $card-padding;
   }
 
   .mat-card-content {
@@ -28,7 +25,6 @@ mat-card.dashboard-card {
     position: initial;
   }
 }
-
 
 mat-card {
 }
