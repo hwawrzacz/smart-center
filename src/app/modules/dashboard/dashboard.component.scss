@@ -1,23 +1,6 @@
 @use '../../../styles/variables' as *;
 @use 'dashboard-layout' as *;
 
-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -45%);
-  pointer-events: none;
-  max-width: 90vw;
-  max-height: 80vh;
-  opacity: .1;
-  object-fit: contain;
-}
-
-.page-wrapper {
-  display: grid;
-  grid-gap: $home-page-grid-gap;
-}
-
 app-weather-card {
   grid-area: weather;
 }
