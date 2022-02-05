@@ -1,6 +1,7 @@
-@use 'variables' as *;
+@use '/src/styles/variables' as *;
 
 mat-card.dashboard-card {
+  position: relative;
   height: 100%;
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -14,6 +15,12 @@ mat-card.dashboard-card {
     margin-right: $card-padding;
   }
 
+  .mat-icon-button {
+    position: absolute;
+    top: $card-header-refresh-icon-margin;
+    right: $card-header-refresh-icon-margin;
+  }
+
   .mat-card-content {
     display: flex;
     flex-grow: 1;
@@ -24,7 +31,4 @@ mat-card.dashboard-card {
   .mat-divider {
     position: initial;
   }
-}
-
-mat-card {
 }
