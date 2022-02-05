@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { SupportedServicesService } from '../../core/services/supported-services.service'
+import { SupportedServicesService } from '../core/services/supported-services.service'
 
 @Component({
   selector: 'app-dashboard',
