@@ -7,34 +7,25 @@ import { HardwareMonitorService } from 'src/app/services/hardware-monitor.servic
   styleUrls: ['./hardware-status-widget.component.scss']
 })
 export class HardwareStatusWidgetComponent {
-  private _layout: 'row' | 'column'
+  @Input() layout: 'row' | 'column'
 
-  @Input()
-  set layout(value: 'row' | 'column') {
-    this._layout = value
-  }
-
-  get layout(): 'row' | 'column' {
-    return this._layout
+  constructor(private hardwareMonitor: HardwareMonitorService) {
+    this.layout = 'row'
   }
 
   get temperature(): number {
-    return this._hardwareMonitor.data.cpuTemp
+    return this.hardwareMonitor.data.cpuTemp
   }
 
   get cpuLoad(): number {
-    return this._hardwareMonitor.data.cpuLoad
+    return this.hardwareMonitor.data.cpuLoad
   }
 
   get ramTotal(): number {
-    return this._hardwareMonitor.data.ramTotal
+    return this.hardwareMonitor.data.ramTotal
   }
 
   get ramUsed(): number {
-    return this._hardwareMonitor.data.ramUsed
-  }
-
-  constructor(private _hardwareMonitor: HardwareMonitorService) {
-    this._layout = 'row'
+    return this.hardwareMonitor.data.ramUsed
   }
 }

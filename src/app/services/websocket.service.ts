@@ -3,8 +3,8 @@ import { WebSocketStatus } from '../models/websocket-status'
 
 export abstract class WebsocketService<T> {
   protected readonly _websocketStatus$: BehaviorSubject<WebSocketStatus | any>
-  protected readonly _data$: BehaviorSubject<T>
-  private _websocket: WebSocket
+  protected readonly data$: BehaviorSubject<T>
+  private websocket: WebSocket
 
   //#region Getters and setters
   get websocketStatus$(): Subject<WebSocketStatus> {
@@ -12,7 +12,7 @@ export abstract class WebsocketService<T> {
   }
 
   get data(): T {
-    return this._data$.value
+    return this.data$.value
   }
 
   //#endregion
@@ -20,12 +20,12 @@ export abstract class WebsocketService<T> {
   constructor(websocketUrl: string) {
     this._websocketStatus$ = new BehaviorSubject(WebSocketStatus.CONNECTING)
     const initialData = {} as T
-    this._data$ = new BehaviorSubject(initialData)
-    this._websocket = new WebSocket(websocketUrl)
+    this.data$ = new BehaviorSubject(initialData)
+    this.websocket = new WebSocket(websocketUrl)
 
-    this._websocket.addEventListener('open', (event) => this.handleWebSocketOpen(event))
-    this._websocket.addEventListener('message', (event) => this.handleWebSocketMessage(event))
-    this._websocket.addEventListener('close', (event) => this.handleWebSocketClose(event))
+    this.websocket.addEventListener('open', (event) => this.handleWebSocketOpen(event))
+    this.websocket.addEventListener('message', (event) => this.handleWebSocketMessage(event))
+    this.websocket.addEventListener('close', (event) => this.handleWebSocketClose(event))
   }
 
   protected handleWebSocketOpen(event: Event): void {

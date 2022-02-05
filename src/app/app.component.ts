@@ -6,23 +6,19 @@ import { Component } from '@angular/core'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  private _sidenavExpanded: boolean
-
-  get sidenavExpanded(): boolean {
-    return this._sidenavExpanded
-  }
+  public sidenavExpanded: boolean
 
   constructor() {
-    this._sidenavExpanded = false
+    this.sidenavExpanded = false
   }
 
   public toggleSidenav(): void {
-    this._sidenavExpanded = !this._sidenavExpanded
+    this.sidenavExpanded = !this.sidenavExpanded
   }
 
   public handleSidenavStateChange(state: boolean): void {
-    if (this._sidenavExpanded != state) {
-      this._sidenavExpanded = state
+    if (this.sidenavExpanded != state) {
+      this.sidenavExpanded = state
     }
   }
 

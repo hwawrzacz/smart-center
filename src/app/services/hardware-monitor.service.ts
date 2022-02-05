@@ -18,7 +18,7 @@ export class HardwareMonitorService extends WebsocketService<HardwareStatus> {
 
     if (message.type === MessageType.HARDWARE_STATUS_RESPONSE) {
       const hardwareStatus = message.value as HardwareStatus
-      this._data$.next(hardwareStatus)
+      this.data$.next(hardwareStatus)
     }
   }
 }

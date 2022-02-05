@@ -17,7 +17,7 @@ export class WeatherService extends WebsocketService<WeatherData> {
 
     if (message.type === MessageType.WEATHER_RESPONSE) {
       const weatherData = message.value as WeatherData
-      this._data$.next(weatherData)
+      this.data$.next(weatherData)
     }
   }
 }
