@@ -4,8 +4,8 @@ import { SettingsPageComponent } from './pages/settings-page/settings-page.compo
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./modules/home/home.module').then(mod => mod.HomeModule)
+    path: 'dashboard',
+    loadChildren: () => import('./modules/dashboard/dashboard.module').then(mod => mod.DashboardModule)
   },
   {
     path: 'settings',
@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'dashboard',
     pathMatch: 'full'
   }
 ]

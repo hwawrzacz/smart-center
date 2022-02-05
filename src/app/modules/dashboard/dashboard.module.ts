@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { HomeComponent } from './home/home.component'
-import { HomeRoutingModule } from './home-routing.module'
+import { DashboardComponent } from './dashboard/dashboard.component'
+import { DashboardRoutingModule } from './dashboard-routing.module'
 import { WeatherModule } from '../weather/weather.module'
 import { AirQualityModule } from '../air-quality/air-quality.module'
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    DashboardComponent
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule,
+    DashboardRoutingModule,
     WeatherModule,
     AirQualityModule,
   ],
-  bootstrap: [HomeComponent]
+  bootstrap: [DashboardComponent]
 })
-export class HomeModule {}
+export class DashboardModule {}

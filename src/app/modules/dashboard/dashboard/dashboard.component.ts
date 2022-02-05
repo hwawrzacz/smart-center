@@ -2,11 +2,11 @@ import { Component } from '@angular/core'
 import { SupportedServicesService } from '../../core/services/supported-services.service'
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
 })
-export class HomeComponent {
+export class DashboardComponent {
 
   constructor(private supportedServices: SupportedServicesService) { }
 
