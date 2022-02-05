@@ -27,7 +27,12 @@
   {
     "name": "openWeatherAirQuality",
     "enabled": true,
-    "config": {}
+    "config": {
+      "apiKey": "ourOpenWeatherApiKey",
+      "url": "http://api.openweathermap.org/data/2.5/air_pollution",
+      "fixedLatitude": 40.417178,
+      "fixedLongitude": -3.703693
+    }
   },
   {
     "name": "printServer",
