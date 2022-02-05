@@ -1,5 +1,11 @@
 @use '/src/styles/variables' as *;
 
+@mixin air-quality-text-style($color) {
+  font-weight: bold;
+  text-shadow: 0 0 5px lighten($color, 20%);
+  color: $color;
+}
+
 mat-card {
   mat-card-content {
     padding-left: 0 !important;
@@ -17,6 +23,25 @@ mat-card {
 
   font-size: 1.2rem;
 }
+
+.air-quality-text {
+  text-shadow: 0 0 5px black;
+
+  $airQualityIndexColors: (
+          '1': limegreen,
+          '2': greenyellow,
+          '3': orange,
+          '4': orangered,
+          '5': #d00000,
+  );
+
+  @each $index, $color in $airQualityIndexColors {
+    &-#{$index} {
+      @include air-quality-text-style($color);
+    }
+  }
+}
+
 
 .air-quality-index-1 {
   background-color: limegreen;

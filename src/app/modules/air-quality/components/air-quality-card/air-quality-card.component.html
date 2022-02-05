@@ -4,8 +4,12 @@
   </mat-card-header>
 
   <mat-card-content>
-    <p *ngIf="airQualityData$ | async as data" class="air-quality-details air-quality-index-{{ data.airQualityIndex }}">
-      <span>Current air quality is {{ getAirQualityIndexName(data.airQualityIndex) | lowercase }}</span>
+    <p *ngIf="airQualityData$ | async as data" class="air-quality-details">
+      <span>Current air quality is
+        <span
+            class="air-quality-text-{{ data.airQualityIndex }}">{{ getAirQualityIndexName(data.airQualityIndex) | lowercase }}
+        </span>
+      </span>
     </p>
   </mat-card-content>
 
