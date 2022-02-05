@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common'
 import { DashboardCardComponent } from './components/dashboard-card/dashboard-card.component'
 import { CommonMaterialModule } from '../common-material/common-material.module'
 
-
 @NgModule({
   declarations: [
     DashboardCardComponent,
@@ -16,4 +15,4 @@ import { CommonMaterialModule } from '../common-material/common-material.module'
     DashboardCardComponent,
   ]
 })
-export class SharedComponentsModule {}
+export class SharedModule {}
