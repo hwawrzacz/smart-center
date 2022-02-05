@@ -1,0 +1,43 @@
+@use '/src/styles/variables' as *;
+
+// Eligible for smartphones
+.page-wrapper {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-areas:
+      'weather    weather'
+      'air        air'
+      '.          .   '
+      '.          .   '
+      '.          .   '
+      '.          .   ';
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .page-wrapper {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas:
+      'weather  weather   air   air   .   .'
+      '.        .         .     .     .   .'
+      '.        .         .     .     .   .'
+      '.        .         .     .     .   .'
+      '.        .         .     .     .   .'
+      '.        .         .     .     .   .';
+  }
+}
+
+
+@media (min-width: $desktop-breakpoint) {
+  .page-wrapper {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    grid-template-areas:
+      'weather  weather   weather   air   air   air   .   .   .   .   .   .'
+      '.        .         .         .     .     .     .   .   .   .   .   .'
+      '.        .         .         .     .     .     .   .   .   .   .   .'
+      '.        .         .         .     .     .     .   .   .   .   .   .'
+      '.        .         .         .     .     .     .   .   .   .   .   .'
+      '.        .         .         .     .     .     .   .   .   .   .   .';
+  }
+}

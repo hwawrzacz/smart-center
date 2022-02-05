@@ -1,4 +1,5 @@
 @use '../../../../styles/variables' as *;
+@use './dashboard-layout' as *;
 
 img {
   position: absolute;
@@ -12,24 +13,14 @@ img {
   object-fit: contain;
 }
 
-
 .page-wrapper {
   width: 100%;
   height: 100vh;
+  padding: $home-page-padding;
+  padding-top: calc(#{$mat-toolbar-height} + #{$home-page-padding});
 
   display: grid;
   grid-gap: $home-page-grid-gap;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-template-areas:
-    'weather weather  air    air    .'
-    'weather weather  air    air    .'
-    '.       .        .      .      .'
-    '.       .        .      .      .'
-    '.       .        .      .      .';
-
-  padding: $home-page-padding;
-  padding-top: calc(#{$mat-toolbar-height} + #{$home-page-padding});
 }
 
 app-weather-card {
@@ -38,11 +29,4 @@ app-weather-card {
 
 app-air-quality-card {
   grid-area: air;
-}
-
-// Small screens
-@media screen and (max-width: $small-screen-breakpoint) {
-  app-weather-card {
-    width: 100%;
-  }
 }
