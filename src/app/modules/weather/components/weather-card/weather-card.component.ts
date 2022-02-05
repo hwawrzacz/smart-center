@@ -8,14 +8,9 @@ import { WeatherService } from '../../services/weather.service'
   styleUrls: ['./weather-card.component.scss']
 })
 export class WeatherCardComponent {
+  constructor(private _weatherService: WeatherService) { }
 
   get weatherInside(): WeatherData {
     return this._weatherService.data
   }
-
-  get weatherOutside(): WeatherData {
-    return this._weatherService.data
-  }
-
-  constructor(private _weatherService: WeatherService) { }
 }

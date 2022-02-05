@@ -34,4 +34,8 @@ export class AirQualityCardComponent implements OnInit {
   public getAirQualityIndexName(index: AirQualityIndex): string {
     return AirQualityIndexNames[index]
   }
+
+  public onRefresh(): void {
+    this.updateAirQualityData()
+  }
 }
