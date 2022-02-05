@@ -25,3 +25,10 @@ body {
 .mat-card-header-text {
   margin-left: 0 !important;
 }
+
+.page-wrapper {
+  width: 100%;
+  height: 100vh;
+  padding: $home-page-padding;
+  padding-top: calc(#{$mat-toolbar-height} + #{$home-page-padding});
+}

@@ -14,11 +14,6 @@ img {
 }
 
 .page-wrapper {
-  width: 100%;
-  height: 100vh;
-  padding: $home-page-padding;
-  padding-top: calc(#{$mat-toolbar-height} + #{$home-page-padding});
-
   display: grid;
   grid-gap: $home-page-grid-gap;
 }
