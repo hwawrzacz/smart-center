@@ -6,7 +6,7 @@ import { IndoorConditions } from '../models/indoor-conditions'
 @Injectable({
   providedIn: 'root'
 })
-export class WeatherService {
+export class IndoorConditionsService {
   // TODO: replace with actual url
   private readonly URL = `http://localhost:3000/indoor-conditions`
 

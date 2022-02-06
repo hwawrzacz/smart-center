@@ -6,7 +6,7 @@ import { ServiceName } from '../models/services-names.enum'
 import { SupportedService } from '../models/supported-services'
 import { OpenWeatherAirQualityConfig } from '../../air-quality/models/open-weather-air-quality-config'
 import { HardwareMonitorConfig } from '../../hardware-monitor/models/hardware-monitor-config'
-import { IndoorWeatherStationConfig } from '../../weather/models/indoor-weather-station-config'
+import { IndoorWeatherStationConfig } from '../../indoor-conditions/models/indoor-weather-station-config'
 
 @Injectable({
   providedIn: 'root'

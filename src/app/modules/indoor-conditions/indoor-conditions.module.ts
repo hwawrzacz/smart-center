@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { WeatherCardComponent } from './components/weather-card/weather-card.component'
+import { IndoorConditionsComponent } from './components/indoor-conditions-card/indoor-conditions.component'
 import { CommonMaterialModule } from '../common-material/common-material.module'
 import { SharedModule } from '../shared/shared.module'
 
 @NgModule({
   declarations: [
-    WeatherCardComponent
+    IndoorConditionsComponent
   ],
   imports: [
     CommonModule,
     CommonMaterialModule,
     SharedModule,
   ],
-  exports: [WeatherCardComponent],
+  exports: [IndoorConditionsComponent],
 })
-export class WeatherModule {}
+export class IndoorConditionsModule {}

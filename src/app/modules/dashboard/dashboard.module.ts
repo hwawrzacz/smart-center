@@ -5,7 +5,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module'
 import { AirQualityModule } from '../air-quality/air-quality.module'
 import { CommonMaterialModule } from '../common-material/common-material.module'
 import { SharedModule } from '../shared/shared.module'
-import { WeatherModule } from '../weather/weather.module'
+import { IndoorConditionsModule } from '../indoor-conditions/indoor-conditions.module'
 
 
 @NgModule({
@@ -18,7 +18,7 @@ import { WeatherModule } from '../weather/weather.module'
     SharedModule,
     DashboardRoutingModule,
     AirQualityModule,
-    WeatherModule,
+    IndoorConditionsModule,
   ],
   exports: [],
   bootstrap: [DashboardComponent]

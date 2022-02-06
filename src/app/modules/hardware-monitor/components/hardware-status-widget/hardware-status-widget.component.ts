@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { HardwareMonitorService } from '../../../../services/hardware-monitor.service'
+import { HardwareMonitorService } from '../../services/hardware-monitor.service'
 import { HardwareStatus } from '../../../../models/hardware-status'
 import { tap } from 'rxjs/operators'
 import { SupportedServicesService } from '../../../core/services/supported-services.service'

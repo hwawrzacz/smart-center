@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
-import { HardwareStatus } from '../models/hardware-status'
+import { HardwareStatus } from '../../../models/hardware-status'
 
 @Injectable({
   providedIn: 'root'
