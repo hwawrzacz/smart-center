@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs'
 import { ServiceName } from '../models/services-names.enum'
 import { SupportedService } from '../models/supported-services'
 import { OpenWeatherAirQualityConfig } from '../../air-quality/models/open-weather-air-quality-config'
-import { HardwareMonitorConfig } from '../../../components/hardware-status-widget/hardware-monitor-config'
+import { HardwareMonitorConfig } from '../../hardware-monitor/components/hardware-status-widget/hardware-monitor-config'
 
 @Injectable({
   providedIn: 'root'
