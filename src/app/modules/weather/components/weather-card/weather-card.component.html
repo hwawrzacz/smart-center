@@ -1,13 +1,13 @@
 <app-dashboard-card [title]="'Indoor conditions'">
   <p class="weather-details">
-    <span>{{ weatherInside.temperature || '--' }}&deg;C</span>
+    <span>{{ indoorConditions?.temperature || '--' }}&deg;C</span>
     <span>
       <mat-icon>speed</mat-icon>
-      {{ weatherInside.pressure || '--' }} hPa
+      {{ indoorConditions?.pressure || '--' }} hPa
     </span>
     <span>
       <mat-icon>grain</mat-icon>
-      {{ weatherInside.humidity || '--' }}%
+      {{ indoorConditions?.humidity || '--' }}%
     </span>
   </p>
 </app-dashboard-card>

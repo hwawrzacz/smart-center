@@ -1,23 +1,18 @@
 import { Injectable } from '@angular/core'
-import { Message } from 'src/app/models/message'
-import { MessageType } from 'src/app/models/message-type'
-import { WebsocketService } from 'src/app/services/websocket.service'
-import { WeatherData } from '../models/weather-data.interface'
+import { HttpClient } from '@angular/common/http'
+import { Observable } from 'rxjs'
+import { IndoorConditions } from '../models/indoor-conditions'
 
 @Injectable({
   providedIn: 'root'
 })
-export class WeatherService extends WebsocketService<WeatherData> {
-  constructor() {
-    super('ws://192.168.0.2:3001')
-  }
+export class WeatherService {
+  // TODO: replace with actual url
+  private readonly URL = `http://localhost:3000/indoor-conditions`
 
-  protected handleWebSocketMessage(messageEvent: MessageEvent): void {
-    const message = JSON.parse(messageEvent.data) as Message<any>
+  constructor(private http: HttpClient) { }
 
-    if (message.type === MessageType.WEATHER_RESPONSE) {
-      const weatherData = message.value as WeatherData
-      this.data$.next(weatherData)
-    }
+  public getIndoorConditions(): Observable<IndoorConditions> {
+    return this.http.get<IndoorConditions>(this.URL)
   }
 }

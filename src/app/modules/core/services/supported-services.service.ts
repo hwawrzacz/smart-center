@@ -5,7 +5,8 @@ import { BehaviorSubject, Observable } from 'rxjs'
 import { ServiceName } from '../models/services-names.enum'
 import { SupportedService } from '../models/supported-services'
 import { OpenWeatherAirQualityConfig } from '../../air-quality/models/open-weather-air-quality-config'
-import { HardwareMonitorConfig } from '../../hardware-monitor/components/hardware-status-widget/hardware-monitor-config'
+import { HardwareMonitorConfig } from '../../hardware-monitor/models/hardware-monitor-config'
+import { IndoorWeatherStationConfig } from '../../weather/models/indoor-weather-station-config'
 
 @Injectable({
   providedIn: 'root'
@@ -80,6 +81,10 @@ export class SupportedServicesService {
 
   get hardwareMonitorConfig(): HardwareMonitorConfig | undefined {
     return this.getServiceConfig(ServiceName.HARDWARE_MONITOR) as HardwareMonitorConfig
+  }
+
+  get indoorWeatherStationConfig(): IndoorWeatherStationConfig | undefined {
+    return this.getServiceConfig(ServiceName.INDOOR_WEATHER_STATION) as IndoorWeatherStationConfig
   }
 
   //endregion
