@@ -1,5 +1,9 @@
 import { Component, Input } from '@angular/core'
-import { HardwareMonitorService } from 'src/app/services/hardware-monitor.service'
+import { HardwareMonitorService } from '../../services/hardware-monitor.service'
+import { HardwareStatus } from '../../models/hardware-status'
+import { tap } from 'rxjs/operators'
+import { SupportedServicesService } from '../../modules/core/services/supported-services.service'
+import { timer } from 'rxjs'
 
 @Component({
   selector: 'app-hardware-status-widget',
@@ -7,25 +11,40 @@ import { HardwareMonitorService } from 'src/app/services/hardware-monitor.servic
   styleUrls: ['./hardware-status-widget.component.scss']
 })
 export class HardwareStatusWidgetComponent {
+  private readonly defaultRefreshInterval = 10 * 60 * 1000 // 10 minutes
   @Input() layout: 'row' | 'column'
+  private hardwareStatus: HardwareStatus = {} as HardwareStatus
 
-  constructor(private hardwareMonitor: HardwareMonitorService) {
+  constructor(private supportedServices: SupportedServicesService, private hardwareMonitor: HardwareMonitorService) {
     this.layout = 'row'
+    const refreshInterval = supportedServices.hardwareMonitorConfig?.refreshInterval
+    timer(0, refreshInterval || this.defaultRefreshInterval).pipe(
+      tap(() => this.refreshHardwareStatus())
+    ).subscribe()
   }
 
+  //region Getters
   get temperature(): number {
-    return this.hardwareMonitor.data.cpuTemp
+    return this.hardwareStatus.cpuTemp
   }
 
   get cpuLoad(): number {
-    return this.hardwareMonitor.data.cpuLoad
+    return this.hardwareStatus.cpuLoad
   }
 
   get ramTotal(): number {
-    return this.hardwareMonitor.data.ramTotal
+    return this.hardwareStatus.ramTotal
   }
 
   get ramUsed(): number {
-    return this.hardwareMonitor.data.ramUsed
+    return this.hardwareStatus.ramUsed
+  }
+
+  //endregion
+
+  refreshHardwareStatus(): void {
+    this.hardwareMonitor.getHardwareStatus().pipe(
+      tap(status => this.hardwareStatus = status)
+    ).subscribe()
   }
 }

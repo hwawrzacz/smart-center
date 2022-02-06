@@ -1,5 +1,5 @@
 export enum ServiceName {
-  HARDWARE_INFORMATION = 'hardwareInformation',
+  HARDWARE_MONITOR = 'hardwareMonitor',
   HARDWARE_MANAGEMENT = 'hardwareManagement',
   PI_HOLE = 'piHole',
   INDOOR_WEATHER_STATION = 'indoorWeatherStation',

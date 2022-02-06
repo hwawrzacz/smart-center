@@ -1,5 +1,5 @@
 export const servicesTranslations: { [key: string]: string } = {
-  'hardwareInformation': 'Hardware information',
+  'hardwareMonitor': 'Hardware information',
   'hardwareManagement': 'Hardware management',
   'piHole': 'PiHole',
   'indoorWeatherStation': 'Indoor weather station',

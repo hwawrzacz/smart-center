@@ -34,7 +34,7 @@
     </div>
   </mat-nav-list>
 
-  <mat-nav-list *ngIf="isHardwareInformationSupported()">
+  <mat-nav-list *ngIf="isHardwareMonitorSupported()">
     <h3 mat-subheader>Hardware status</h3>
     <app-hardware-status-widget [layout]="'column'"></app-hardware-status-widget>
   </mat-nav-list>

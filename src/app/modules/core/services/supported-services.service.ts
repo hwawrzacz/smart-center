@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http'
 import { tap } from 'rxjs/operators'
 import { BehaviorSubject, Observable } from 'rxjs'
 import { ServiceName } from '../models/services-names.enum'
-import { SupportedService, SupportedServiceConfig } from '../models/supported-services'
+import { SupportedService } from '../models/supported-services'
 import { OpenWeatherAirQualityConfig } from '../../air-quality/models/open-weather-air-quality-config'
+import { HardwareMonitorConfig } from '../../../components/hardware-status-widget/hardware-monitor-config'
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +22,8 @@ export class SupportedServicesService {
     return this._services$.value.length > 0
   }
 
-  get isHardwareInformationSupported(): boolean {
-    return this.isServiceSupported(ServiceName.HARDWARE_INFORMATION)
+  get isHardwareMonitorSupported(): boolean {
+    return this.isServiceSupported(ServiceName.HARDWARE_MONITOR)
   }
 
   get isHardwareManagementSupported(): boolean {
@@ -77,6 +78,10 @@ export class SupportedServicesService {
     return this.getServiceConfig(ServiceName.OPEN_WEATHER_AIR_QUALITY) as OpenWeatherAirQualityConfig
   }
 
+  get hardwareMonitorConfig(): HardwareMonitorConfig | undefined {
+    return this.getServiceConfig(ServiceName.HARDWARE_MONITOR) as HardwareMonitorConfig
+  }
+
   //endregion
 
   public isServiceSupported(serviceName: ServiceName): boolean {
@@ -89,7 +94,7 @@ export class SupportedServicesService {
     ).subscribe()
   }
 
-  private getServiceConfig(serviceName: ServiceName): SupportedServiceConfig {
-    return this._services$.value.find(service => service.name === serviceName)?.config as SupportedServiceConfig
+  private getServiceConfig(serviceName: ServiceName): any {
+    return this._services$.value.find(service => service.name === serviceName)?.config as any
   }
 }

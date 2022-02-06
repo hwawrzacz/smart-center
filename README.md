@@ -152,7 +152,7 @@ expected.
 ```json
 [
   {
-    "name": "hardwareInformation",
+    "name": "hardwareMonitor",
     "enabled": true,
     "config": {}
   },

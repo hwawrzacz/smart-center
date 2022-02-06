@@ -14,8 +14,8 @@ export class SidenavMenuComponent {
     window.open(environment.piHoleAdminPanelUrl, '_blank')
   }
 
-  public isHardwareInformationSupported(): boolean {
-    return this.supportedServices.isHardwareInformationSupported
+  public isHardwareMonitorSupported(): boolean {
+    return this.supportedServices.isHardwareMonitorSupported
   }
 
   public isHardwareManagementSupported(): boolean {
