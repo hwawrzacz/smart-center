@@ -1,4 +1,6 @@
-<app-dashboard-card [title]="'Indoor conditions'">
+<app-dashboard-card [title]="'Indoor conditions'"
+                    [showRefreshButton]="true"
+                    (refresh)="onRefresh()">
   <p class="weather-details">
     <span>{{ indoorConditions?.temperature || '--' }}&deg;C</span>
     <span>

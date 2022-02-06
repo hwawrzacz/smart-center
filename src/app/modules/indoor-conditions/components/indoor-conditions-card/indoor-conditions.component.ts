@@ -27,4 +27,8 @@ export class IndoorConditionsComponent {
       tap(conditions => this.indoorConditions = conditions)
     ).subscribe()
   }
+
+  onRefresh(): void {
+    this.loadIndoorConditions()
+  }
 }
