@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "smart-center": {
+    "supivisor": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -25,7 +25,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/smart-center",
+            "outputPath": "dist/supivisor",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -83,18 +83,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "smart-center:build"
+            "browserTarget": "supivisor:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "smart-center:build:production"
+              "browserTarget": "supivisor:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "smart-center:build"
+            "browserTarget": "supivisor:build"
           }
         },
         "test": {
@@ -120,11 +120,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "smart-center:serve"
+            "devServerTarget": "supivisor:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "smart-center:serve:production"
+              "devServerTarget": "supivisor:serve:production"
             }
           }
         },
@@ -140,7 +140,7 @@
       }
     }
   },
-  "defaultProject": "smart-center",
+  "defaultProject": "supivisor",
   "cli": {
     "defaultCollection": "@angular-eslint/schematics"
   }
