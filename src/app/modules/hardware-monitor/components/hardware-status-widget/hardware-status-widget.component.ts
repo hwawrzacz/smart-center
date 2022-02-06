@@ -11,7 +11,7 @@ import { timer } from 'rxjs'
   styleUrls: ['./hardware-status-widget.component.scss']
 })
 export class HardwareStatusWidgetComponent {
-  private readonly defaultRefreshInterval = 10 * 60 * 1000 // 10 minutes
+  private readonly defaultRefreshInterval = 60 * 1000 // 1 minute
   @Input() layout: 'row' | 'column'
   private hardwareStatus: HardwareStatus = {} as HardwareStatus
 
@@ -19,7 +19,7 @@ export class HardwareStatusWidgetComponent {
     this.layout = 'row'
     const refreshInterval = supportedServices.hardwareMonitorConfig?.refreshInterval
     timer(0, refreshInterval || this.defaultRefreshInterval).pipe(
-      tap(() => this.refreshHardwareStatus())
+      tap(() => this.loadHardwareStatus())
     ).subscribe()
   }
 
@@ -42,7 +42,7 @@ export class HardwareStatusWidgetComponent {
 
   //endregion
 
-  refreshHardwareStatus(): void {
+  loadHardwareStatus(): void {
     this.hardwareMonitor.getHardwareStatus().pipe(
       tap(status => this.hardwareStatus = status)
     ).subscribe()
