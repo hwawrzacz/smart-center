@@ -76,6 +76,22 @@
               ],
               "serviceWorker": true,
               "ngswConfigPath": "ngsw-config.json"
+            },
+            "linux": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.windows.ts"
+                }
+              ]
+            },
+            "windows": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.windows.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": ""
@@ -88,6 +104,12 @@
           "configurations": {
             "production": {
               "browserTarget": "supivisor:build:production"
+            },
+            "windows": {
+              "browserTarget": "supivisor:build:windows"
+            },
+            "linux": {
+              "browserTarget": "supivisor:build:linux"
             }
           }
         },
