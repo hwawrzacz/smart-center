@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { HardwareStatus } from '../../../models/hardware-status'
+import { environment } from '../../../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class HardwareMonitorService {
-  // TODO: replace with actual ip address
-  private readonly URL = `http://localhost:3000/hardware-status`
+  private readonly URL = `${ environment.serverIpAddress }/hardware-status`
 
   constructor(private http: HttpClient) { }
 
