@@ -1,5 +1,5 @@
 export interface WeatherRaw {
-  dt: Date
+  dt: number
   temp: number
   feels_like: number
   pressure: number
@@ -14,8 +14,8 @@ export interface WeatherRaw {
   weather: WeatherDescriptionRaw[]
 
   pop?: number
-  sunrise?: Date
-  sunset?: Date
+  sunrise?: number
+  sunset?: number
 }
 
 export interface WeatherDescriptionRaw {

@@ -17,14 +17,14 @@ export class WeatherResponseMapper {
 
   private static mapWeather(data: WeatherRaw, lat: number, lon: number): Weather {
     return {
-      date: data.dt,
+      date: new Date(data.dt * 1000),
       latitude: lat,
       longitude: lon,
       temperature: data.temp,
       feelsLike: data.feels_like,
       pressure: data.pressure,
       humidity: data.humidity,
-      dew_point: data.dew_point,
+      dewPoint: data.dew_point,
       uvIndex: data.uvi,
       clouds: data.clouds,
       visibility: data.visibility,
@@ -34,8 +34,8 @@ export class WeatherResponseMapper {
       weather: WeatherResponseMapper.mapWeatherDescription(data.weather),
 
       precipitationChance: data.pop,
-      sunrise: data.sunrise,
-      sunset: data.sunset,
+      sunrise: data.sunrise ? new Date(data.sunrise * 1000) : undefined,
+      sunset: data.sunset ? new Date(data.sunset * 1000) : undefined,
     }
   }
 

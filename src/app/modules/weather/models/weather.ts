@@ -6,7 +6,7 @@ export interface Weather {
   feelsLike: number
   pressure: number
   humidity: number
-  dew_point: number
+  dewPoint: number
   uvIndex: number
   clouds: number
   visibility: number

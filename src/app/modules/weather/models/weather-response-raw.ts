@@ -3,8 +3,8 @@ import { WeatherRaw } from './weather-raw'
 export interface WeatherResponseRaw {
   lat: number
   lon: number
-  timezone: 'Europe/Warsaw'
-  timezone_offset: Number
+  timezone: string
+  timezone_offset: number
   current: WeatherRaw
   hourly: WeatherRaw[]
 }
