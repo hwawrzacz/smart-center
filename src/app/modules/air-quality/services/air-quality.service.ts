@@ -13,11 +13,11 @@ import { AirQualityResponseMapper } from '../utils/air-quality-response-mapper'
   providedIn: 'root'
 })
 export class AirQualityService {
-  private config!: OpenWeatherAirQualityConfig
+  private readonly config!: OpenWeatherAirQualityConfig
   private readonly url!: string
   private readonly apiKey!: string
-  private latitude!: number
-  private longitude!: number
+  private readonly latitude!: number
+  private readonly longitude!: number
 
   constructor(private http: HttpClient, private supportedServices: SupportedServicesService) {
     if (!supportedServices.isOpenWeatherAirQualitySupported) {

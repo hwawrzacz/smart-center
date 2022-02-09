@@ -5,6 +5,7 @@ export enum ServiceName {
   INDOOR_WEATHER_STATION = 'indoorWeatherStation',
   OUTDOOR_WEATHER_STATION = 'outdoorWeatherStation',
   OPEN_WEATHER_AIR_QUALITY = 'openWeatherAirQuality',
+  OPEN_WEATHER_FORECAST = 'openWeatherForecast',
   PRINT_SERVER = 'printServer',
   MOTION_SENSORS = 'motionSensors',
   PARKING_CAMERAS = 'parkingCameras',

@@ -7,6 +7,7 @@ import { SupportedService } from '../models/supported-services'
 import { OpenWeatherAirQualityConfig } from '../../air-quality/models/open-weather-air-quality-config'
 import { HardwareMonitorConfig } from '../../hardware-monitor/models/hardware-monitor-config'
 import { IndoorWeatherStationConfig } from '../../indoor-conditions/models/indoor-weather-station-config'
+import { OpenWeatherForecastConfig } from '../../weather/models/open-weather-forecast-config'
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,10 @@ export class SupportedServicesService {
     return this.isServiceSupported(ServiceName.OPEN_WEATHER_AIR_QUALITY)
   }
 
+  get isOpenWeatherForecastSupported(): boolean {
+    return this.isServiceSupported(ServiceName.OPEN_WEATHER_FORECAST)
+  }
+
   get isPrintServerSupported(): boolean {
     return this.isServiceSupported(ServiceName.PRINT_SERVER)
   }
@@ -79,6 +84,10 @@ export class SupportedServicesService {
     return this.getServiceConfig(ServiceName.OPEN_WEATHER_AIR_QUALITY) as OpenWeatherAirQualityConfig
   }
 
+  get openWeatherForecastConfig(): OpenWeatherAirQualityConfig | undefined {
+    return this.getServiceConfig(ServiceName.OPEN_WEATHER_FORECAST) as OpenWeatherForecastConfig
+  }
+
   get hardwareMonitorConfig(): HardwareMonitorConfig | undefined {
     return this.getServiceConfig(ServiceName.HARDWARE_MONITOR) as HardwareMonitorConfig
   }
@@ -88,7 +97,7 @@ export class SupportedServicesService {
   }
 
   //endregion
-
+  
   public isServiceSupported(serviceName: ServiceName): boolean {
     return this.isAnyServiceSupported && !!this._services$.value.find(service => service.name === serviceName)?.enabled
   }
