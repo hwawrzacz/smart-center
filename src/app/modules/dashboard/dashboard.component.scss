@@ -1,10 +1,14 @@
 @use '../../../styles/variables' as *;
 @use 'dashboard-layout' as *;
 
-app-weather-card {
-  grid-area: weather;
+app-indoor-conditions-card {
+  grid-area: indoor;
 }
 
 app-air-quality-card {
   grid-area: air;
+}
+
+app-weather-card {
+  grid-area: weather;
 }

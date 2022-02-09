@@ -17,4 +17,8 @@ export class DashboardComponent {
   isAirQualitySupported(): boolean {
     return this.supportedServices.isOpenWeatherAirQualitySupported
   }
+
+  isForecastSupported(): boolean {
+    return this.supportedServices.isOpenWeatherForecastSupported
+  }
 }

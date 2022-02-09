@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core'
+import { WeatherService } from '../../services/weather.service'
+import { tap } from 'rxjs/operators'
 
 @Component({
   selector: 'app-weather-card',
@@ -7,8 +9,10 @@ import { Component, OnInit } from '@angular/core'
 })
 export class WeatherCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private weatherService: WeatherService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.weatherService.getWeatherData().pipe(tap(console.log)).subscribe()
+  }
 
 }

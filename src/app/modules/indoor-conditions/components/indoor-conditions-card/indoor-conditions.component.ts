@@ -6,7 +6,7 @@ import { timer } from 'rxjs'
 import { SupportedServicesService } from '../../../core/services/supported-services.service'
 
 @Component({
-  selector: 'app-weather-card',
+  selector: 'app-indoor-conditions-card',
   templateUrl: './indoor-conditions.component.html',
   styleUrls: ['./indoor-conditions.component.scss']
 })

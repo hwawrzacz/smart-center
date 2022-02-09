@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { WeatherCardComponent } from './components/weather-card/weather-card.component';
-
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { WeatherCardComponent } from './components/weather-card/weather-card.component'
 
 
 @NgModule({
@@ -10,6 +9,9 @@ import { WeatherCardComponent } from './components/weather-card/weather-card.com
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    WeatherCardComponent
   ]
 })
-export class WeatherModule { }
+export class WeatherModule {}
