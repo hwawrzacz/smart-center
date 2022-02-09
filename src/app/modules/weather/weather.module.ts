@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { WeatherCardComponent } from './components/weather-card/weather-card.component'
+import { SharedModule } from '../shared/shared.module'
+import { CommonMaterialModule } from '../common-material/common-material.module'
 
 
 @NgModule({
@@ -8,7 +10,9 @@ import { WeatherCardComponent } from './components/weather-card/weather-card.com
     WeatherCardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CommonMaterialModule,
+    SharedModule,
   ],
   exports: [
     WeatherCardComponent

@@ -42,6 +42,8 @@ export class WeatherService {
     const params = new HttpParams().appendAll({
       lat: latitude || this.latitude,
       lon: longitude || this.longitude,
+      exclude: 'minutely',
+      units: 'metric',
       appid: this.apiKey
     })
     return this.http.get<WeatherResponseRaw>(this.url, {params: params}).pipe(

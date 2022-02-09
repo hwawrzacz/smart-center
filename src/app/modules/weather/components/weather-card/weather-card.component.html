@@ -1,1 +1,15 @@
-<p>weather-card works!</p>
+<app-dashboard-card [title]="'Weather'" [showRefreshButton]="true" (refresh)="onRefresh()">
+  <p class="weather-details">
+    <span>{{ currentWeather?.feelsLike || '--' }}&deg;C</span>
+    <span>
+      <mat-icon>air</mat-icon>
+      {{ currentWeather?.windSpeed || '--' }} m/s
+    </span>
+    <span>
+      <mat-icon>grain</mat-icon>
+      {{ currentWeather?.humidity || '--' }}%
+    </span>
+    <span> {{ currentWeather?.weather?.description || '--' }}</span>
+  </p>
+  <small>Updated: {{ currentWeather?.date | date: 'dd-mm-YYYY' }}</small>
+</app-dashboard-card>
