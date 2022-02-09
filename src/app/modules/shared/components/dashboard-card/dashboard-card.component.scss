@@ -26,6 +26,19 @@ mat-card.dashboard-card {
     flex-grow: 1;
     justify-content: stretch;
     align-items: center;
+
+    &.flex-row {
+      flex-direction: row;
+    }
+
+    &.flex-column {
+      flex-direction: column;
+    }
+
+    .last-update {
+      opacity: $minor-color-opacity;
+      align-self: flex-start;
+    }
   }
 
   .mat-divider {
