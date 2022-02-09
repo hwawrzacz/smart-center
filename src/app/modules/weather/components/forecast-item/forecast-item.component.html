@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <small>
+    <strong class="time"> {{ item?.date || '--:--'  | date: 'hh:mm a'}}</strong>
+  </small>
+
+  <div class="fx-v-center">
+    <img src="http://openweathermap.org/img/wn/{{item?.weather?.icon}}.png" alt="weather icon"/>
+    <span class="temperature"
+          [matTooltip]="'Actual: ' + item?.temperature"
+          [matTooltipPosition]="'above'"
+    >
+      {{ item?.feelsLike || '&mdash;' }}&deg;
+    </span>
+  </div>
+  <p class="details fx-v-center">
+    <span class="wind fx-v-center">
+      <mat-icon class="small">air</mat-icon>
+      <span>{{ item?.windSpeed || '-' }}</span>
+    </span>
+
+    <span class="precipitation-chance fx-v-center">
+      <mat-icon class="small">water_drop</mat-icon>
+      <span>{{ item?.precipitationChance?.toString() || '-' }}%</span>
+    </span>
+  </p>
+</div>

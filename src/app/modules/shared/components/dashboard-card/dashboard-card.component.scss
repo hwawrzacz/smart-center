@@ -29,10 +29,12 @@ mat-card.dashboard-card {
 
     &.flex-row {
       flex-direction: row;
+      justify-content: flex-start;
     }
 
     &.flex-column {
       flex-direction: column;
+      align-items: flex-start;
     }
 
     .last-update {

@@ -3,16 +3,25 @@
                     [lastUpdate]="currentWeather?.date"
                     (refresh)="onRefresh()">
   <p class="weather-details">
-    <span>{{ currentWeather?.feelsLike || '--' }}&deg;C</span>
+    <span [matTooltip]="'Actual' + currentWeather?.temperature">
+      {{ currentWeather?.feelsLike || '--' }}&deg;C
+    </span>
+
     <span>
       <mat-icon>air</mat-icon>
       {{ currentWeather?.windSpeed || '--' }} m/s
     </span>
+
     <span>
       <mat-icon>grain</mat-icon>
       {{ currentWeather?.humidity || '--' }}%
     </span>
+    <!-- TODO: Improve this layout -->
     <span> {{ currentWeather?.weather?.description || '--' }}</span>
   </p>
-  <p class="forecast-details"></p>
+  <h4>Later today</h4>
+  <p class="forecast">
+    <app-forecast-item *ngFor="let forecastItem of forecast" [item]="forecastItem">
+    </app-forecast-item>
+  </p>
 </app-dashboard-card>

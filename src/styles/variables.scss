@@ -16,6 +16,7 @@ $spacing-regular: 8px;
 $spacing-medium: 16px;
 $spacing-big: 32px;
 $spacing-huge: 64px;
+$margin-h4: 16px;
 
 // Home page layout
 $home-page-padding: 16px;
@@ -27,6 +28,10 @@ $card-grid-gap: 12px;
 $card-content-padding-bottom: 16px;
 $card-header-title-margin-bottom: 12px;
 $card-header-refresh-icon-margin: 6px;
+
+// Weather
+$forecast-details-margin: $spacing-small;
+$forecast-item-padding: $spacing-medium;
 
 
 //===================================
@@ -65,3 +70,13 @@ $color-yellowgreen: yellowgreen;
 $color-green: rgb(0, 170, 0);
 $color-bluegray: rgb(60, 80, 116);
 $minor-color-opacity: 0.7;
+
+
+//========================================
+//============== COMPONENTS ==============
+//========================================
+// Scrollbar
+$scrollbar-size: 8px;
+$scrollbar-bg-color: #f1f1f1;
+$scrollbar-thumb-color: #888;
+$scrollbar-thumb-color-hover: #555;
