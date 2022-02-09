@@ -1,9 +1,11 @@
 <app-dashboard-card [title]="'Air quality'"
-                    [showRefreshButton]="true" (refresh)="onRefresh()">
-  <p *ngIf="airQualityData$ | async as data" class="air-quality-details">
+                    [showRefreshButton]="true"
+                    [lastUpdate]="airQualityData?.date"
+                    (refresh)="onRefresh()">
+  <p *ngIf="airQualityData" class="air-quality-details">
     <span>Current air quality is
       <span
-          class="air-quality-text-{{ data.airQualityIndex }}">{{ getAirQualityIndexName(data.airQualityIndex) | lowercase }}
+          class="air-quality-text-{{ airQualityData.airQualityIndex }}">{{ getAirQualityIndexName(airQualityData.airQualityIndex) | lowercase }}
       </span>
     </span>
   </p>

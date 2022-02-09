@@ -12,7 +12,7 @@ export class AirQualityResponseMapper {
       newRead.longitude = data.coord[1]
       newRead.airQualityIndex = airQuality.main.aqi
       newRead.components = AirQualityResponseMapper.mapComponents(airQuality.components)
-      newRead.date = airQuality.dt
+      newRead.date = new Date(airQuality.dt * 1000)
 
       mappedData.push(newRead)
     })

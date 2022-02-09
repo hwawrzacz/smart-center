@@ -12,7 +12,7 @@ export interface AirComponents {
 }
 
 export interface AirQualityData {
-  date: number
+  date: Date
   latitude: number
   longitude: number
   airQualityIndex: AirQualityIndex
