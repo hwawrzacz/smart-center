@@ -2,24 +2,46 @@
                     [showRefreshButton]="true"
                     [lastUpdate]="currentWeather?.date"
                     (refresh)="onRefresh()">
-  <p class="weather-details">
-    <span [matTooltip]="'Actual: ' + currentWeather?.temperature" matTooltipPosition="above">
-      {{ currentWeather?.feelsLike?.toString() || '--' }}&deg;C
-    </span>
+  <div class="weather-details">
+    <div class="weather-details-item temperature">
+      <img src="https://openweathermap.org/img/wn/{{currentWeather?.weather?.icon}}@2x.png" alt="weather icon"/>
+    </div>
 
-    <span>
-      <mat-icon>air</mat-icon>
-      {{ currentWeather?.windSpeed?.toString() || '--' }} m/s
-    </span>
+    <div class="weather-details-item temperature">
+      <span [matTooltip]="'Actual: ' + currentWeather?.temperature" matTooltipPosition="above">
+        {{ currentWeather?.feelsLike?.toString() || '--' }}&deg;C
+      </span>
+    </div>
 
-    <span>
-      <mat-icon>grain</mat-icon>
-      {{ currentWeather?.humidity?.toString() || '--' }}%
-    </span>
-    <!-- TODO: Improve this layout -->
-    <span> {{ currentWeather?.weather?.description || '--' }}</span>
-  </p>
+    <div class="weather-details-item conditions">
+      <span [matTooltip]="'Actual: ' + currentWeather?.temperatureMax" matTooltipPosition="above">
+        <mat-icon class="color-warm">arrow_drop_up</mat-icon>
+        {{ currentWeather?.feelsLikeMax?.toString() || '--' }}&deg;C
+      </span>
+      
+      <span [matTooltip]="'Actual: ' + currentWeather?.temperatureMin" matTooltipPosition="above">
+        <mat-icon class="color-cold">arrow_drop_down</mat-icon>
+        {{ currentWeather?.feelsLikeMin?.toString() || '--' }}&deg;C
+      </span>
+    </div>
+
+    <div class="weather-details-item conditions">
+      <span>
+        <mat-icon class="color-wind">air</mat-icon>
+        {{ currentWeather?.windSpeed?.toString() || '--' }} m/s
+      </span>
+
+      <span>
+        <mat-icon class="color-humidity">grain</mat-icon>
+        {{ currentWeather?.humidity?.toString() || '--' }}%
+      </span>
+    </div>
+
+    <p class="description"> {{ currentWeather?.weather?.description || '--' }}</p>
+  </div>
+
   <h4>Later today</h4>
+
   <p class="forecast">
     <app-forecast-item *ngFor="let forecastItem of forecast" [item]="forecastItem">
     </app-forecast-item>

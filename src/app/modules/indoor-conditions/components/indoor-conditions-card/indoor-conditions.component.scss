@@ -1,1 +1,36 @@
+@use 'src/styles/variables.scss' as *;
 @import 'src/app/modules/shared/styles/common-weather-styles';
+
+.weather-details {
+  width: 100%;
+  display: grid;
+  grid-gap: $card-grid-gap;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    'temperature pressure'
+    'temperature humidity';
+
+  span {
+    display: flex;
+    align-items: center;
+
+    &:nth-child(1) {
+      font-size: 3em;
+      padding-left: 0;
+      grid-area: temperature;
+    }
+
+    &:nth-child(2) {
+      font-size: 1.4em;
+      padding-right: 0;
+      grid-area: pressure;
+    }
+
+    &:nth-child(3) {
+      font-size: 1.4em;
+      padding-right: 0;
+      grid-area: humidity;
+    }
+  }
+}

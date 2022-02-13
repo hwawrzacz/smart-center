@@ -5,7 +5,11 @@ export interface Weather {
   latitude: number
   longitude: number
   temperature: number
+  temperatureMin?: number
+  temperatureMax?: number
   feelsLike: number
+  feelsLikeMin?: number
+  feelsLikeMax?: number
   pressure: number
   humidity: number
   dewPoint: number

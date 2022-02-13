@@ -1,4 +1,5 @@
 @use '/src/styles/variables' as *;
+@import 'src/app/modules/shared/styles/common-weather-styles';
 
 :host {
   &:first-child > .wrapper {
@@ -28,6 +29,6 @@
 }
 
 .color-rain {
-  color: $color-rain-icon
+  color: $color-rain
 }
 

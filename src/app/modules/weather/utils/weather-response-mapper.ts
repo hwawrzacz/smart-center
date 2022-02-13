@@ -2,13 +2,24 @@ import { WeatherDescriptionRaw, WeatherRaw } from '../models/weather-raw'
 import { Weather, WeatherDescription } from '../models/weather'
 import { WeatherResponseRaw } from '../models/weather-response-raw'
 import { WeatherResponse } from '../models/weather-response'
+import { ObjectHelper } from '../../core/utils/object-helper'
 
 export class WeatherResponseMapper {
   public static mapWeatherResponse(data: WeatherResponseRaw): WeatherResponse {
-    return {
+    const weatherResponse: WeatherResponse = {
       current: WeatherResponseMapper.mapWeather(data.current, data.lat, data.lon),
       forecast: this.mapForecast(data.hourly, data.lat, data.lon)
-    } as WeatherResponse
+    }
+    weatherResponse.current.precipitationChance = weatherResponse.forecast[0].precipitationChance
+    const [minTemp, maxTemp] = WeatherResponseMapper.getMinMaxTemperature(weatherResponse.forecast)
+    weatherResponse.current.temperatureMin = minTemp
+    weatherResponse.current.temperatureMax = maxTemp
+
+    const [minFeels, maxFeels] = WeatherResponseMapper.getMinMaxFeelsLike(weatherResponse.forecast)
+    weatherResponse.current.feelsLikeMin = minFeels
+    weatherResponse.current.feelsLikeMax = maxFeels
+
+    return weatherResponse
   }
 
   private static mapForecast(data: WeatherRaw[], lat: number, lon: number): Weather[] {
@@ -46,5 +57,17 @@ export class WeatherResponseMapper {
       description: data[0].description,
       icon: data[0].icon,
     } as WeatherDescription
+  }
+
+  private static getMinMaxTemperature(forecast: Weather[]): number[] {
+    const forecastCopy = forecast.map(weather => ObjectHelper.copy<Weather>(weather))
+    forecastCopy.sort()
+    return [forecastCopy[0].temperature, forecastCopy[forecastCopy.length - 1].temperature]
+  }
+
+  private static getMinMaxFeelsLike(forecast: Weather[]): number[] {
+    const forecastCopy = forecast.map(weather => ObjectHelper.copy<Weather>(weather))
+    forecastCopy.sort()
+    return [forecastCopy[0].feelsLike, forecastCopy[forecastCopy.length - 1].feelsLike]
   }
 }
