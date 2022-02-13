@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http'
 import { SupportedServicesService } from '../../core/services/supported-services.service'
 import { ObjectHelper } from '../../core/utils/object-helper'
 import { Observable } from 'rxjs'
-import { map } from 'rxjs/operators'
+import { map, tap } from 'rxjs/operators'
 import { WeatherResponseMapper } from '../utils/weather-response-mapper'
 import { WeatherResponseRaw } from '../models/weather-response-raw'
 import { WeatherResponse } from '../models/weather-response'
@@ -47,7 +47,8 @@ export class WeatherService {
       appid: this.apiKey
     })
     return this.http.get<WeatherResponseRaw>(this.url, {params: params}).pipe(
-      map(res => WeatherResponseMapper.mapWeatherResponse(res))
+      map(res => WeatherResponseMapper.mapWeatherResponse(res)),
+      tap(res => res.forecast = res.forecast.slice(0, 12))
     )
   }
 }

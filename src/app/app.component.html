@@ -5,11 +5,11 @@
 
   <mat-sidenav-content>
     <mat-toolbar color="primary" fxLayout="row">
-      <div fxFlex="row" fxLayoutAlign="space-between center">
+      <div class="header-wrapper">
         <button mat-icon-button (click)="toggleSidenav()">
           <mat-icon>menu</mat-icon>
         </button>
-        <h1>Smart center</h1>
+        <h1 [routerLink]="'dashboard'">Supivisor</h1>
       </div>
 
       <a mat-icon-button routerLink="/settings" matTooltip="Settings">

@@ -1,3 +1,5 @@
+import { WeatherIcon } from './weather-icon'
+
 export interface Weather {
   date: Date
   latitude: number
@@ -24,5 +26,5 @@ export interface WeatherDescription {
   id: number
   main: string
   description: string
-  icon: string
+  icon: WeatherIcon
 }

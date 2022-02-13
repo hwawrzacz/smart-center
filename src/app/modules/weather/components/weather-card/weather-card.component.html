@@ -3,18 +3,18 @@
                     [lastUpdate]="currentWeather?.date"
                     (refresh)="onRefresh()">
   <p class="weather-details">
-    <span [matTooltip]="'Actual' + currentWeather?.temperature">
-      {{ currentWeather?.feelsLike || '--' }}&deg;C
+    <span [matTooltip]="'Actual: ' + currentWeather?.temperature" matTooltipPosition="above">
+      {{ currentWeather?.feelsLike?.toString() || '--' }}&deg;C
     </span>
 
     <span>
       <mat-icon>air</mat-icon>
-      {{ currentWeather?.windSpeed || '--' }} m/s
+      {{ currentWeather?.windSpeed?.toString() || '--' }} m/s
     </span>
 
     <span>
       <mat-icon>grain</mat-icon>
-      {{ currentWeather?.humidity || '--' }}%
+      {{ currentWeather?.humidity?.toString() || '--' }}%
     </span>
     <!-- TODO: Improve this layout -->
     <span> {{ currentWeather?.weather?.description || '--' }}</span>
