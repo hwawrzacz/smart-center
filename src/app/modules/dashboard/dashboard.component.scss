@@ -1,6 +1,34 @@
 @use '../../../styles/variables' as *;
 @use 'dashboard-layout' as *;
 
+.page-wrapper.dashboard {
+  .layout-wrapper {
+    grid-gap: $home-page-grid-gap;
+
+    background-color: initial;
+    height: 100vh;
+    overflow: auto;
+
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      background-image: url("/assets/images/raspberry-pi-logo.png");
+      background-attachment: fixed;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      opacity: .1;
+    }
+  }
+}
+
 app-indoor-conditions-card {
   grid-area: indoor;
 }

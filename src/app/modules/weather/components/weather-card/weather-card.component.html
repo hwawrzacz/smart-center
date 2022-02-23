@@ -3,38 +3,42 @@
                     [lastUpdate]="currentWeather?.date"
                     (refresh)="onRefresh()">
   <div class="weather-details">
-    <div class="weather-details-item temperature">
-      <img src="https://openweathermap.org/img/wn/{{currentWeather?.weather?.icon}}@2x.png" alt="weather icon"/>
-    </div>
+    <div class="weather-details-group">
+      <div class="weather-details-item temperature">
+        <img src="https://openweathermap.org/img/wn/{{currentWeather?.weather?.icon}}@2x.png" alt="weather icon"/>
+      </div>
 
-    <div class="weather-details-item temperature">
+      <div class="weather-details-item temperature">
       <span [matTooltip]="'Actual: ' + currentWeather?.temperature" matTooltipPosition="above">
         {{ currentWeather?.feelsLike?.toString() || '--' }}&deg;C
       </span>
+      </div>
     </div>
 
-    <div class="weather-details-item conditions">
-      <span [matTooltip]="'Actual: ' + currentWeather?.temperatureMax" matTooltipPosition="above">
-        <mat-icon class="color-warm">arrow_drop_up</mat-icon>
-        {{ currentWeather?.feelsLikeMax?.toString() || '--' }}&deg;C
-      </span>
-      
-      <span [matTooltip]="'Actual: ' + currentWeather?.temperatureMin" matTooltipPosition="above">
-        <mat-icon class="color-cold">arrow_drop_down</mat-icon>
-        {{ currentWeather?.feelsLikeMin?.toString() || '--' }}&deg;C
-      </span>
-    </div>
+    <div class="weather-details-group">
+      <div class="weather-details-item conditions">
+        <span [matTooltip]="'Actual: ' + currentWeather?.temperatureMax" matTooltipPosition="above">
+          <mat-icon class="color-warm">arrow_drop_up</mat-icon>
+          {{ currentWeather?.feelsLikeMax?.toString() || '--' }}&deg;C
+        </span>
 
-    <div class="weather-details-item conditions">
-      <span>
-        <mat-icon class="color-wind">air</mat-icon>
-        {{ currentWeather?.windSpeed?.toString() || '--' }} m/s
-      </span>
+        <span [matTooltip]="'Actual: ' + currentWeather?.temperatureMin" matTooltipPosition="above">
+          <mat-icon class="color-cold">arrow_drop_down</mat-icon>
+          {{ currentWeather?.feelsLikeMin?.toString() || '--' }}&deg;C
+        </span>
+      </div>
 
-      <span>
-        <mat-icon class="color-humidity">grain</mat-icon>
-        {{ currentWeather?.humidity?.toString() || '--' }}%
-      </span>
+      <div class="weather-details-item conditions">
+        <span>
+          <mat-icon class="color-wind">air</mat-icon>
+          {{ currentWeather?.windSpeed?.toString() || '--' }} m/s
+        </span>
+
+        <span>
+          <mat-icon class="color-humidity">grain</mat-icon>
+          {{ currentWeather?.humidity?.toString() || '--' }}%
+        </span>
+      </div>
     </div>
 
     <p class="description"> {{ currentWeather?.weather?.description || '--' }}</p>

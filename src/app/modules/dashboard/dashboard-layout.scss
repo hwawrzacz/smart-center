@@ -1,20 +1,13 @@
 @use '../../../styles/variables' as *;
 
 // Eligible for smartphones
-.page-wrapper {
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  grid-template-areas:
-      'indoor     indoor'
-      'air        air'
-      'weather    weather'
-      'weather    weather'
-      '.          .   '
-      '.          .   ';
+.layout-wrapper {
+  display: flex;
 }
 
 @media (min-width: $tablet-breakpoint) {
-  .page-wrapper {
+  .layout-wrapper {
+    display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(6, 1fr);
     grid-template-areas:
@@ -27,11 +20,11 @@
   }
 }
 
-
 @media (min-width: $desktop-breakpoint) {
-  .page-wrapper {
+  .layout-wrapper {
+    display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     grid-template-areas:
       'indoor   indoor    indoor    air       air       air       .   .   .   .   .   .'
       'weather  weather   weather   weather   weather   weather   .   .   .   .   .   .'

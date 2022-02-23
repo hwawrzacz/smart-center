@@ -63,6 +63,7 @@ $big-desktop-breakpoint: 1400px;
 //============== COLORS ==============
 //====================================
 // General
+$app-background: #FAFAFA;
 $color-red: rgb(255, 0, 0);
 $color-orangered: orangered;
 $color-orange: rgb(240, 128, 0);
@@ -85,6 +86,6 @@ $color-humidity: $color-rain;
 //========================================
 // Scrollbar
 $scrollbar-size: 8px;
-$scrollbar-bg-color: #f1f1f1;
+$scrollbar-bg-color: $app-background;
 $scrollbar-thumb-color: #888;
 $scrollbar-thumb-color-hover: #555;

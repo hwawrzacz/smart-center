@@ -1,5 +1,7 @@
 <div class="page-wrapper dashboard">
-  <app-indoor-conditions-card *ngIf="isWeatherServiceSupported()"></app-indoor-conditions-card>
-  <app-air-quality-card *ngIf="isAirQualitySupported()"></app-air-quality-card>
-  <app-weather-card *ngIf="isForecastSupported()"></app-weather-card>
+  <div class="layout-wrapper">
+    <app-air-quality-card *ngIf="isAirQualitySupported()"></app-air-quality-card>
+    <app-weather-card *ngIf="isForecastSupported()"></app-weather-card>
+    <app-indoor-conditions-card *ngIf="isWeatherServiceSupported()"></app-indoor-conditions-card>
+  </div>
 </div>

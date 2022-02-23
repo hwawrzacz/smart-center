@@ -6,6 +6,17 @@
   align-items: center;
   flex-wrap: wrap;
 
+  .weather-details-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    @media (min-width: $tablet-breakpoint) {
+      display: flex;
+      width: initial;
+    }
+  }
+
   .weather-details-item {
     display: flex;
     flex-direction: column;

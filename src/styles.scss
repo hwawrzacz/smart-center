@@ -38,35 +38,17 @@ mat-icon.small {
   position: relative;
   width: 100%;
   height: 100vh;
-  padding: $home-page-padding;
-  padding-top: calc(#{$mat-toolbar-height} + #{$home-page-padding});
-
-  display: flex;
-  flex-direction: column;
 
   background-color: white;
+  overflow: auto;
 
-  &.dashboard {
-    display: grid;
-    grid-gap: $home-page-grid-gap;
+  .layout-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: $home-page-padding;
+    padding-top: calc(#{$mat-toolbar-height} + #{$home-page-padding});
 
-    background-color: initial;
-
-    &:before {
-      display: block;
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-
-      background-image: url("/assets/images/raspberry-pi-logo.png");
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
-
-      opacity: .1;
-    }
+    display: flex;
+    flex-direction: column;
   }
 }
