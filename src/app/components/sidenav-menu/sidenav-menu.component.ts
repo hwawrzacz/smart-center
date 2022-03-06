@@ -2,6 +2,8 @@ import { Component } from '@angular/core'
 import { SupportedServicesService } from '../../modules/core/services/supported-services.service'
 import { environment } from '../../../environments/environment'
 import { HardwareManagementService } from '../../modules/hardware-management/services/hardware-management.service'
+import { ConfirmationDialogData } from '../../modules/shared/models/confirmation-dialog-data'
+import { ConfirmationDialogService } from '../../modules/shared/services/confirmation-dialog.service'
 
 @Component({
   selector: 'app-sidenav-menu',
@@ -12,6 +14,7 @@ export class SidenavMenuComponent {
   constructor(
     private supportedServices: SupportedServicesService,
     private hardwareManagementService: HardwareManagementService,
+    private confirmationDialogService: ConfirmationDialogService,
   ) { }
 
   public openPiHoleAdminPanel(): void {
@@ -31,10 +34,22 @@ export class SidenavMenuComponent {
   }
 
   public reboot(): void {
-    this.hardwareManagementService.reboot()
+    const confirmationData = {
+      title: 'Confirm reboot',
+      message: 'This action will reboot the server. Are you sure you want to proceed?'
+    } as ConfirmationDialogData
+    const action = () => this.hardwareManagementService.reboot()
+
+    this.confirmationDialogService.confirmAction(action, confirmationData)
   }
 
   public shutdown(): void {
-    this.hardwareManagementService.shutdown()
+    const confirmationData = {
+      title: 'Confirm shutdown',
+      message: 'This action will turn the server off. Are you sure you want to proceed?'
+    } as ConfirmationDialogData
+    const action = () => this.hardwareManagementService.shutdown()
+
+    this.confirmationDialogService.confirmAction(action, confirmationData)
   }
 }

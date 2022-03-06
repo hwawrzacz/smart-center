@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card'
 import { MatDividerModule } from '@angular/material/divider'
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { MatTabsModule } from '@angular/material/tabs'
+import { MatDialogModule } from '@angular/material/dialog'
 
 @NgModule({
   declarations: [],
@@ -24,6 +25,7 @@ import { MatTabsModule } from '@angular/material/tabs'
     MatDividerModule,
     MatTooltipModule,
     MatTabsModule,
+    MatDialogModule,
   ],
   exports: [
     MatToolbarModule,
@@ -36,6 +38,7 @@ import { MatTabsModule } from '@angular/material/tabs'
     MatDividerModule,
     MatTooltipModule,
     MatTabsModule,
+    MatDialogModule,
   ]
 })
 export class CommonMaterialModule {}
