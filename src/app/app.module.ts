@@ -12,6 +12,7 @@ import { CoreModule } from './modules/core/core.module'
 import { SettingsPageComponent } from './pages/settings-page/settings-page.component'
 import { ServiceTranslatePipe } from './pipes/service-translate.pipe'
 import { HardwareMonitorModule } from './modules/hardware-monitor/hardware-monitor.module'
+import { HardwareManagementModule } from './modules/hardware-management/hardware-management.module'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HardwareMonitorModule } from './modules/hardware-monitor/hardware-monit
       registrationStrategy: 'registerWhenStable:30000'
     }),
     CoreModule,
-    HardwareMonitorModule
+    HardwareMonitorModule,
+    HardwareManagementModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

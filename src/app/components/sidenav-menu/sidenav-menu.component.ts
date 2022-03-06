@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { SupportedServicesService } from '../../modules/core/services/supported-services.service'
 import { environment } from '../../../environments/environment'
+import { HardwareManagementService } from '../../modules/hardware-management/services/hardware-management.service'
 
 @Component({
   selector: 'app-sidenav-menu',
@@ -8,7 +9,10 @@ import { environment } from '../../../environments/environment'
   styleUrls: ['./sidenav-menu.component.scss']
 })
 export class SidenavMenuComponent {
-  constructor(private supportedServices: SupportedServicesService) { }
+  constructor(
+    private supportedServices: SupportedServicesService,
+    private hardwareManagementService: HardwareManagementService,
+  ) { }
 
   public openPiHoleAdminPanel(): void {
     window.open(environment.piHoleAdminPanelUrl, '_blank')
@@ -24,5 +28,13 @@ export class SidenavMenuComponent {
 
   public isPiHoleSupported(): boolean {
     return this.supportedServices.isPiHoleSupported
+  }
+
+  public reboot(): void {
+    this.hardwareManagementService.reboot()
+  }
+
+  public shutdown(): void {
+    this.hardwareManagementService.shutdown()
   }
 }

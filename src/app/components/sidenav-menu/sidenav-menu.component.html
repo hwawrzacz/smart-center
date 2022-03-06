@@ -22,14 +22,14 @@
 
     <div *ngIf="isHardwareManagementSupported()">
       <h3 mat-subheader>Administration</h3>
-      <mat-list-item disabled>
+      <mat-list-item (click)="reboot()">
         <mat-icon>settings_backup_restore</mat-icon>
         <span> Reboot </span>
       </mat-list-item>
 
-      <mat-list-item disabled>
+      <mat-list-item (click)="shutdown()">
         <mat-icon>power_settings_new</mat-icon>
-        <span> Shut down </span>
+        <span> Shutdown </span>
       </mat-list-item>
     </div>
   </mat-nav-list>
