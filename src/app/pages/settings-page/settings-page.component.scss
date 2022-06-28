@@ -1,5 +1,12 @@
 @use "/src/styles/variables" as *;
 
+:host ::ng-deep .mat-tab-header {
+  top: $toolbar-height;
+  position: sticky;
+  z-index: 2;
+  background-color: $app-background;
+}
+
 mat-icon {
   margin-right: $spacing-regular;
 }
@@ -10,10 +17,6 @@ mat-icon {
 
 .service-disabled {
   color: $color-red;
-}
-
-mat-tab-group {
-  overflow: auto;
 }
 
 mat-list {

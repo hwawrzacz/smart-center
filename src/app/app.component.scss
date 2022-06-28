@@ -23,6 +23,7 @@ mat-toolbar {
   top: 0;
   left: 0;
   width: 100vw;
+  height: $toolbar-height;
   display: flex;
   justify-content: space-between;
   z-index: 9999;
