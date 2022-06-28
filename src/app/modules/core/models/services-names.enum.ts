@@ -11,4 +11,5 @@ export enum ServiceName {
   PARKING_CAMERAS = 'parkingCameras',
   MAIN_LIGHTS_CONTROL = 'mainLightsControl',
   DECORATIVE_LIGHTS_CONTROL = 'decorativeLightsControl',
+  SPOTIFY = 'spotify',
 }
