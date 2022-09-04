@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { SupportedServicesService } from '../../modules/core/services/supported-services.service'
+import { SupportedServicesService } from '../../modules/core/supported-services/supported-services.service'
 import { environment } from '../../../environments/environment'
 import { HardwareManagementService } from '../../modules/hardware-management/services/hardware-management.service'
 import { ConfirmationDialogData } from '../../modules/shared/models/confirmation-dialog-data'

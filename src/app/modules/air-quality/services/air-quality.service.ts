@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { SupportedServicesService } from '../../core/services/supported-services.service'
+import { SupportedServicesService } from '../../core/supported-services/supported-services.service'
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { OpenWeatherAirQualityConfig } from '../models/open-weather-air-quality-config'
@@ -25,6 +25,7 @@ export class AirQualityService {
       throw Error('OpenWeather Air Quality service is not supported')
     }
 
+    // TODO: Inspect 'forbidden non-null assertion'
     this.config = this.supportedServices.openWeatherAirQualityConfig!
 
     if (ObjectHelper.objectIsEmpty(this.config)) {
