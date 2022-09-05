@@ -1,5 +1,5 @@
 import { BehaviorSubject, Subject } from 'rxjs'
-import { WebSocketStatus } from '../models/websocket-status'
+import { WebSocketStatus } from '../shared/websocket/models/websocket-status'
 
 export abstract class WebsocketService<T> {
   protected readonly _websocketStatus$: BehaviorSubject<WebSocketStatus | any>

@@ -1,0 +1,22 @@
+@use 'variables' as *;
+
+.color-cold {
+  color: $color-cold;
+}
+
+.color-warm {
+  color: $color-warm;
+}
+
+.color-rain {
+  color: $color-rain;
+}
+
+.color-wind {
+  color: $color-wind;
+}
+
+.color-humidity {
+  color: $color-humidity;
+}
+

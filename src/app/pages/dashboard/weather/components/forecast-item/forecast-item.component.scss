@@ -1,0 +1,34 @@
+@use '../../../../../../styles/variables' as *;
+@import '../../../../../../styles/common-weather-styles';
+
+:host {
+  &:first-child > .wrapper {
+    padding-left: 0;
+  }
+
+  &:last-child > .wrapper {
+    padding-right: 0;
+  }
+}
+
+.wrapper {
+  padding: 0 $forecast-item-padding;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.temperature {
+  font-size: 1.6rem;
+}
+
+.wind {
+  margin-right: $forecast-details-margin;
+}
+
+.color-rain {
+  color: $color-rain
+}
+
