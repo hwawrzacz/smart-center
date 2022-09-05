@@ -1,5 +1,5 @@
 export class ObjectHelper {
-  public static objectIsEmpty(object: any) {
+  public static isEmpty(object: any) {
     return Object.keys(object).length == 0
   }
 

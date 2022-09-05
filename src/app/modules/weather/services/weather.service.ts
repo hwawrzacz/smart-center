@@ -28,7 +28,7 @@ export class WeatherService {
     // TODO: Inspect 'forbidden non-null assertion'
     this.config = this.supportedServices.openWeatherForecastConfig!
 
-    if (ObjectHelper.objectIsEmpty(this.config)) {
+    if (ObjectHelper.isEmpty(this.config)) {
       console.error('Config is empty. Make sure you filled config of right service.')
       throw Error('Service config is empty')
     }
