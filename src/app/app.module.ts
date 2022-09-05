@@ -13,7 +13,8 @@ import { SettingsPageComponent } from './pages/settings/settings-page/settings-p
 import { ServiceTranslatePipe } from './pipes/service-translate.pipe'
 import { HardwareMonitorModule } from './pages/dashboard/hardware-monitor/hardware-monitor.module'
 import { HardwareManagementModule } from './pages/dashboard/hardware-management/hardware-management.module';
-import { SupportedServicesComponent } from './pages/settings/supported-services/supported-services.component'
+import { SupportedServicesComponent } from './pages/settings/supported-services/supported-services.component';
+import { SensorsComponent } from './pages/settings/sensors/sensors.component'
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SupportedServicesComponent } from './pages/settings/supported-services/
     SettingsPageComponent,
     ServiceTranslatePipe,
     SupportedServicesComponent,
+    SensorsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,20 @@
 @use "../../../../styles/variables" as *;
 
-:host ::ng-deep .mat-tab-header {
+:host ::ng-deep .settings-page .mat-tab-header {
   top: $toolbar-height;
   position: sticky;
   z-index: 2;
   background-color: $app-background;
+}
+
+.layout-wrapper {
+  height: 100%;
+}
+
+mat-tab-group {
+  height: 100%;
+}
+
+:host ::ng-deep .settings-page .mat-tab-body-wrapper {
+  height: 100%;
 }
