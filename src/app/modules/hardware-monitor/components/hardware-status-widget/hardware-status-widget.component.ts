@@ -2,7 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core'
 import { HardwareMonitorService } from '../../services/hardware-monitor.service'
 import { HardwareStatus } from '../../../../models/hardware-status'
 import { takeUntil, tap } from 'rxjs/operators'
-import { SupportedServicesService } from '../../../core/services/supported-services.service'
+import { SupportedServicesService } from '../../../core/supported-services/supported-services.service'
 import { Subject, timer } from 'rxjs'
 
 @Component({

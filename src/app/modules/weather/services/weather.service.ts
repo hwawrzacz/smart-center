@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpParams } from '@angular/common/http'
-import { SupportedServicesService } from '../../core/services/supported-services.service'
+import { SupportedServicesService } from '../../core/supported-services/supported-services.service'
 import { ObjectHelper } from '../../core/utils/object-helper'
 import { Observable } from 'rxjs'
 import { map, tap } from 'rxjs/operators'
@@ -13,7 +13,7 @@ import { OpenWeatherForecastConfig } from '../models/open-weather-forecast-confi
   providedIn: 'root'
 })
 export class WeatherService {
-  private readonly config!: OpenWeatherForecastConfig
+  private readonly config: OpenWeatherForecastConfig
   private readonly url!: string
   private readonly apiKey!: string
   private readonly latitude!: number
@@ -25,9 +25,10 @@ export class WeatherService {
       throw Error('OpenWeather Forecast service is not supported')
     }
 
+    // TODO: Inspect 'forbidden non-null assertion'
     this.config = this.supportedServices.openWeatherForecastConfig!
 
-    if (ObjectHelper.objectIsEmpty(this.config)) {
+    if (ObjectHelper.isEmpty(this.config)) {
       console.error('Config is empty. Make sure you filled config of right service.')
       throw Error('Service config is empty')
     }
@@ -38,10 +39,13 @@ export class WeatherService {
     this.longitude = this.config.fixedLongitude || 18.692823
   }
 
-  public getWeatherData(latitude?: number, longitude?: number): Observable<WeatherResponse> {
+  public getWeatherData(
+    latitude = this.latitude,
+    longitude = this.longitude
+  ): Observable<WeatherResponse> {
     const params = new HttpParams().appendAll({
-      lat: latitude || this.latitude,
-      lon: longitude || this.longitude,
+      lat: latitude,
+      lon: longitude,
       exclude: 'minutely',
       units: 'metric',
       appid: this.apiKey

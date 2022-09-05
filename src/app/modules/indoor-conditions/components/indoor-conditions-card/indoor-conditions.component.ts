@@ -3,7 +3,7 @@ import { IndoorConditions } from '../../models/indoor-conditions'
 import { IndoorConditionsService } from '../../services/indoor-conditions.service'
 import { takeUntil, tap } from 'rxjs/operators'
 import { Subject, timer } from 'rxjs'
-import { SupportedServicesService } from '../../../core/services/supported-services.service'
+import { SupportedServicesService } from '../../../core/supported-services/supported-services.service'
 
 @Component({
   selector: 'app-indoor-conditions-card',

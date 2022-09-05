@@ -1,8 +1,8 @@
 import { Component } from '@angular/core'
 import { servicesTranslations } from '../../../assets/constants'
-import { SupportedServicesService } from '../../modules/core/services/supported-services.service'
-import { SupportedService } from '../../modules/core/models/supported-services'
-import { ServiceName } from '../../modules/core/models/services-names.enum'
+import { SupportedServicesService } from '../../modules/core/supported-services/supported-services.service'
+import { SupportedService } from '../../modules/core/supported-services/models/supported-services'
+import { ServiceName } from '../../modules/core/supported-services/models/services-names.enum'
 import { Observable } from 'rxjs'
 
 @Component({

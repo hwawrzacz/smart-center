@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { tap } from 'rxjs/operators'
 import { BehaviorSubject, Observable } from 'rxjs'
-import { ServiceName } from '../models/services-names.enum'
-import { SupportedService } from '../models/supported-services'
+import { ServiceName } from './models/services-names.enum'
+import { SupportedService } from './models/supported-services'
 import { OpenWeatherAirQualityConfig } from '../../air-quality/models/open-weather-air-quality-config'
 import { HardwareMonitorConfig } from '../../hardware-monitor/models/hardware-monitor-config'
 import { IndoorWeatherStationConfig } from '../../indoor-conditions/models/indoor-weather-station-config'
@@ -97,7 +97,7 @@ export class SupportedServicesService {
   }
 
   //endregion
-  
+
   public isServiceSupported(serviceName: ServiceName): boolean {
     return this.isAnyServiceSupported && !!this._services$.value.find(service => service.name === serviceName)?.enabled
   }
