@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core'
 import { Permission } from './models/permission.enum'
-import { from } from 'rxjs'
+import { BehaviorSubject, from, Observable } from 'rxjs'
 import { DOCUMENT } from '@angular/common'
 import { filter, take, tap } from 'rxjs/operators'
 import { PermissionRequestState } from './models/permission-request-state.enum'
@@ -10,20 +10,23 @@ import { Coordinates } from '../../../models/coordinates'
   providedIn: 'root'
 })
 export class PermissionsService {
-  private location?: Coordinates
+  private _location: BehaviorSubject<Coordinates>
   private readonly navigator?: Navigator
 
   constructor(@Inject(DOCUMENT) private document: Document) {
+    this._location = new BehaviorSubject<Coordinates>({} as Coordinates)
     this.navigator = document.defaultView?.navigator
   }
 
+  get location(): Observable<Coordinates> {
+    return this._location.asObservable();
+  }
+
   private updateLocation = (position: GeolocationPosition) => {
-    if (!this.location) {
-      this.location = {} as Coordinates
-    }
-    this.location.latitude = position.coords.latitude
-    this.location.longitude = position.coords.longitude
-    console.log(this.location)
+    this._location.next({
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude
+    })
   }
 
   requestLocationPermission() {

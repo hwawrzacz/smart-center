@@ -3,30 +3,36 @@ import { WeatherService } from '../../services/weather.service'
 import { tap } from 'rxjs/operators'
 import { Weather } from '../../models/weather'
 import { PermissionsService } from '../../../core/permissions/permissions.service'
+import { LocationBased } from '../../../shared/components/location-based'
 
 @Component({
   selector: 'app-weather-card',
   templateUrl: './weather-card.component.html',
   styleUrls: ['./weather-card.component.scss']
 })
-export class WeatherCardComponent implements OnInit {
+export class WeatherCardComponent extends LocationBased implements OnInit {
   currentWeather?: Weather
   forecast?: Weather[]
-  private latitude?: number
-  private longitude?: number
 
   constructor(
     private weatherService: WeatherService,
-    private permissions: PermissionsService
-  ) { }
+    protected permissions: PermissionsService
+  ) {
+    super(permissions)
+  }
 
   ngOnInit(): void {
-    console.log()
+    this.addUserLocationListener()
     this.onRefresh()
   }
 
-  private attemptLocationAccess() {
-    this.permissions.requestLocationPermission()
+  protected onLocationUpdated() {
+    this.loadWeatherData()
+  }
+
+  onRefresh(): void {
+    this.attemptLocationAccess()
+    this.loadWeatherData()
   }
 
   private loadWeatherData(): void {
@@ -34,10 +40,5 @@ export class WeatherCardComponent implements OnInit {
       this.currentWeather = weatherData.current
       this.forecast = weatherData.forecast
     })).subscribe()
-  }
-
-  onRefresh(): void {
-    this.attemptLocationAccess()
-    this.loadWeatherData()
   }
 }

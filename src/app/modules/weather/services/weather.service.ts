@@ -39,10 +39,13 @@ export class WeatherService {
     this.longitude = this.config.fixedLongitude || 18.692823
   }
 
-  public getWeatherData(latitude?: number, longitude?: number): Observable<WeatherResponse> {
+  public getWeatherData(
+    latitude = this.latitude,
+    longitude = this.longitude
+  ): Observable<WeatherResponse> {
     const params = new HttpParams().appendAll({
-      lat: latitude || this.latitude,
-      lon: longitude || this.longitude,
+      lat: latitude,
+      lon: longitude,
       exclude: 'minutely',
       units: 'metric',
       appid: this.apiKey
