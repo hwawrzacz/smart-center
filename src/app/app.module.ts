@@ -12,7 +12,8 @@ import { CoreModule } from './modules/core/core.module'
 import { SettingsPageComponent } from './pages/settings/settings-page/settings-page.component'
 import { ServiceTranslatePipe } from './pipes/service-translate.pipe'
 import { HardwareMonitorModule } from './pages/dashboard/hardware-monitor/hardware-monitor.module'
-import { HardwareManagementModule } from './pages/dashboard/hardware-management/hardware-management.module'
+import { HardwareManagementModule } from './pages/dashboard/hardware-management/hardware-management.module';
+import { SupportedServicesComponent } from './pages/settings/supported-services/supported-services.component'
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HardwareManagementModule } from './pages/dashboard/hardware-management/
     SidenavMenuComponent,
     SettingsPageComponent,
     ServiceTranslatePipe,
+    SupportedServicesComponent,
   ],
   imports: [
     BrowserModule,

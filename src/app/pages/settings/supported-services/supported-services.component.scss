@@ -1,0 +1,43 @@
+@use "../../../../styles/variables" as *;
+
+mat-icon {
+  margin-right: $spacing-regular;
+}
+
+.service-enabled {
+  color: $color-green;
+}
+
+.service-disabled {
+  color: $color-red;
+}
+
+mat-list {
+  flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (min-width: $tablet-breakpoint) {
+  mat-list {
+    mat-list-item {
+      width: 50%;
+    }
+  }
+}
+
+@media (min-width: $desktop-breakpoint) {
+  mat-list {
+    mat-list-item {
+      width: 30%;
+    }
+  }
+}
+
+@media (min-width: $big-desktop-breakpoint) {
+  mat-list {
+    mat-list-item {
+      width: 25%;
+    }
+  }
+}
